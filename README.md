@@ -1,4 +1,4 @@
-# actwebsite
+# ACT Website
 
 ## Project setup
 ```

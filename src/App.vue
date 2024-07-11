@@ -1,8 +1,9 @@
 <template>
   <div id="app">
-    <router-link to="/">Home</router-link>
-    <router-link to="/about">About</router-link>
-
+    <router-link v-for="route in $router.options.routes" :key="route.path" :to="route.path">
+      {{ route.name }}
+      <br>
+    </router-link>
     <router-view></router-view>
   </div>
 </template>
@@ -10,5 +11,5 @@
 <script>
 export default {
 
-}
+};
 </script>
