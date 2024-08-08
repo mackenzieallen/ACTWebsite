@@ -6,14 +6,18 @@
         <p class="emph">Allow one minute. Participant responses should be transcribed verbatim. If the participant gives no response in 15 seconds, repeat the basic instruction. The first time an incorrect answer is provided, say <b>“I want supermarket (grocery store) items.”</b> Do not correct for subsequent errors. If the participant says, <b>“I can’t think of anymore”</b> before 60 seconds have passed, say: <b class="no-emph">“Keep trying.”
         </b></p>
     </div>
+
+    <VerbalFluency />
 </template>
 
 <script>
 import BaseLayout from '../BaseLayout.vue';
+import VerbalFluency from '@/components/Pages/VerbalFluency.vue';
 
 export default {
   components: {
-    BaseLayout
+    BaseLayout,
+    VerbalFluency
   }
 }
 </script>

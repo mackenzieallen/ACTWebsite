@@ -1,19 +1,17 @@
 <template>
     <BaseLayout :heading="'Trail Making'" />
-  
-  </template>
-  
-  <script>
-  import BaseLayout from './BaseLayout.vue';
-  
-  export default {
+</template>
+
+<script>
+import BaseLayout from './BaseLayout.vue';
+
+export default {
   components: {
     BaseLayout
   }
-  }
-  </script>
-  
-  <style scoped>
-  
-  </style>
-  
+}
+</script>
+
+<style scoped>
+
+</style>

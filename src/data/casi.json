@@ -1,0 +1,1769 @@
+{
+    "prequestions": {
+      "preinstructions": "I'm going to be asking you some specific questions about your physical and mental condition. Now I'd like to see how you are feeling at the moment.",
+      "questions": [
+        {
+          "question": "Is it a good day, a bad day, or an average day for you?",
+          "number": "1",
+          "postinstructions": "If bad, go to question 2.",
+          "inputs": [
+            {
+              "type": "prompt",
+              "name": "goodBad",
+              "scores": [
+                {
+                  "label": "Good",
+                  "value": 1
+                },
+                {
+                  "label": "Bad",
+                  "value": 2
+                },
+                {
+                  "label": "Average",
+                  "value": 3
+                },
+                {
+                  "label": "Unable to answer",
+                  "value": 9
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "question": "Why does it seem like a bad day? (DO NOT PROMPT)",
+          "number": "2",
+          "postinstructions": "If only reason is mentioned, ask \"Is there anything else that makes this a bad day?\"",
+          "inputs": [
+            {
+              "type": "text",
+              "label": "Physical reasons",
+              "name": "physical",
+              "scores": [
+                {
+                  "label": "Yes",
+                  "value": 1
+                },
+                {
+                  "label": "No",
+                  "value": 0
+                }
+              ]
+            },
+            {
+              "type": "text",
+              "label": "Emotional reasons",
+              "name": "emotional",
+              "scores": [
+                {
+                  "label": "Yes",
+                  "value": 1
+                },
+                {
+                  "label": "No",
+                  "value": 0
+                }
+              ]
+            },
+            {
+              "type": "text",
+              "label": "Other reasons",
+              "name": "other",
+              "scores": [
+                {
+                  "label": "Yes",
+                  "value": 1
+                },
+                {
+                  "label": "No",
+                  "value": 0
+                }
+              ]
+            }
+          ],
+          "examples": { 
+            "physical": [
+              "Acute or chronic illness",
+              "General fatigue",
+              "Hunger",
+              "Lack of sleep",
+              "Side effects of medications"
+            ],
+            "emotional": [
+              "Feelings of sadness or anger",
+              "Anxiety",
+              "Feeling overstressed (financial, work, or family problems)"
+            ],
+            "other": [
+              "Car trouble",
+              "Bad weather"
+            ]
+          }
+        }
+      ]
+    },
+    "sections": [
+      {
+        "questions": [
+          {
+            "inputs": [
+              {
+                "type": "text",
+                "name": "dob",
+                "label": "Date of birth"
+              },
+              {
+                "type": "text",
+                "name": "age",
+                "label": "Age"
+              },
+              {
+                "type": "text",
+                "name": "startTime",
+                "label": "Testing start time"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "questions": [
+          {
+            "question": "Where were you born?",
+            "number": "1",
+            "inputs": [
+              {
+                "type": "text",
+                "name": "city",
+                "label": "City (Town, Village)",
+                "scoreLabel": "BPL",
+                "scores": [
+                  {
+                    "value": 1
+                  },
+                  {
+                    "value": 0
+                  }
+                ]
+              },
+              {
+                "type": "text",
+                "name": "state",
+                "label": "State / Prefecture",
+                "scores": [
+                  {
+                    "value": 1
+                  },
+                  {
+                    "value": 0
+                  }
+                ]
+              }
+            ],
+            "scoreAlgorithm": {
+              "type": "sum",
+              "targets": ["all"]
+            }
+          }
+        ]
+      },
+      {
+        "questions": [
+          {
+            "question": "When were you born?",
+            "number": "2",
+            "inputs": [
+              {
+                "type": "text",
+                "name": "birthYear",
+                "label": "Year",
+                "scoreLabel": "BYR",
+                "scores": [
+                  {
+                    "label": "Accurate",
+                    "value": 2
+                  },
+                  {
+                    "label": "Missed by 1-3 years",
+                    "value": 1
+                  },
+                  {
+                    "label": "Missed by > 3 years",
+                    "value": 0
+                  }
+                ]
+              },
+              {
+                "type": "text",
+                "name": "birthMonth",
+                "label": "Month",
+                "scoreLabel": "BMO",
+                "scores": [
+                  {
+                    "value": 1
+                  },
+                  {
+                    "value": 0
+                  }
+                ]
+              },
+              {
+                "type": "text",
+                "name": "birthDay",
+                "label": "Day",
+                "scoreLabel": "BDAY",
+                "scores": [
+                  {
+                    "value": 1
+                  },
+                  {
+                    "value": 0
+                  }
+                ]
+              }
+            ],
+            "scoreAlgorithm": {
+              "type": "sum",
+              "targets": ["year",["month", "day"]]
+            }        
+          }
+        ]
+      },
+      {
+        "questions": [
+          {
+            "question": "How old are you?",
+            "number": "3",
+            "inputs": [
+              {
+                "type": "text",
+                "name": "age",
+                "label": "Age",
+                "scoreLabel": "AGE",
+                "scores": [
+                  {
+                    "label": "Accurate",
+                    "value": 2
+                  },
+                  {
+                    "label": "Missed by 1-3 years",
+                    "value": 1
+                  },
+                  {
+                    "label": "Missed by > 3 years",
+                    "value": 0
+                  }
+                ]
+              }
+            ],
+            "scoreAlgorithm": {
+              "type": "sum",
+              "targets": ["all"]
+            }        
+          }
+        ]
+      },
+      {
+        "questions": [
+          {
+            "question": "How many minutes are in an hour? OR how many days are in a year?",
+            "number": "4",
+            "inputs": [
+              {
+                "type": "text",
+                "name": "minutes",
+                "label": "Minutes/Days",
+                "scoreLabel": "MNT",
+                "instructions": "Score 2 if either question is answered correctly.",
+                "scores": [
+                  {
+                    "value": 2
+                  },
+                  {
+                    "value": 0
+                  }
+                ]
+              }
+            ],
+            "scoreAlgorithm": {
+              "type": "sum",
+              "targets": ["all"]
+            }        
+          }
+        ]
+      },
+      {
+        "questions": [
+          {
+            "question": "In what direction does the sun set?",
+            "number": "5",
+            "inputs": [
+              {
+                "type": "text",
+                "name": "sun",
+                "label": "Direction of setting sun",
+                "scoreLabel": "SUN",
+                "instructions": "If confused, may provide 4 choices.",
+                "scores": [
+                  {
+                    "value": 2
+                  },
+                  {
+                    "value": 0
+                  }
+                ]
+              }
+            ],
+            "scoreAlgorithm": {
+              "type": "sum",
+              "targets": ["all"]
+            }        
+          }
+        ]
+      },
+      {
+        "questions": [
+          {
+            "question": "I am going to say 3 words for you to remember. Repeat them after I've said all three.",
+            "number": "6a",
+            "inputs": [
+              {
+                "type": "choice",
+                "name": "recall",
+                "scoreLabel": "RGS1",
+                "choices": [
+                  "Shirt, Brown, Honesty",
+                  "Shoes, Black, Modesty",
+                  "Socks, Blue, Charity"
+                ],
+                "scores": [
+                  {
+                    "value": 3
+                  },
+                  {
+                    "value": 2
+                  },
+                  {
+                    "value": 1
+                  },
+                  {
+                    "value": 0
+                  }
+                ]
+              }
+            ],
+            "scoreAlgorithm": {
+              "type": "sum",
+              "targets": ["all"]
+            }        
+          },
+          {
+            "question": "",
+            "number": "",
+            "inputs": [
+              {
+                "type": "prompt",
+                "name": "recallb",
+                "label": "6b. If the participant can't answer the first time, elaborate and repeat up to 3 times. Score best performance.",
+                "scoreLabel": "RGS2",
+                "scores": [
+                  {
+                    "value": 3
+                  },
+                  {
+                    "value": 2
+                  },
+                  {
+                    "value": 1
+                  },
+                  {
+                    "value": 0
+                  }
+                ]
+              }
+            ],
+            "scoreAlgorithm": {
+              "type": "sum",
+              "targets": ["all"]
+            }        
+          }
+        ]
+      },
+      {
+        "questions": [
+          {
+            "question": "I shall say some numbers, and you repeat what I said backwards. For example, if I say 1-2, you say 2-1. OK? Remember: you repeat what I say backwards.",
+            "number": "7",
+            "postinstructions": "Rate 1 digit/second",
+            "inputs": [
+              {
+                "type": "prompt",
+                "name": "dba",
+                "label": "1 - 2 - 3",
+                "scoreLabel": "DBA",
+                "instructions": "If unable, coach 3-2-1, but score 0.",
+                "scores": [
+                  {
+                    "value": 1
+                  },
+                  {
+                    "value": 0
+                  }
+                ]
+              },
+              {
+                "type": "prompt",
+                "name": "dbb",
+                "scoreLabel": "DBB",
+                "label": "6 - 8 - 2",
+                "scores": [
+                  {
+                    "value": 2
+                  },
+                  {
+                    "value": 0
+                  }
+                ]
+              },
+              {
+                "type": "prompt",
+                "name": "dbc",
+                "scoreLabel": "DBC",
+                "label": "3 - 5 - 2 - 9",
+                "preinstructions": "If score is both 0 in DBA and DBB, score DBC 0.",
+                "scores": [
+                  {
+                   "value": 2
+                  },
+                  {
+                    "value": 0
+                  }
+                ]
+              }
+            ],
+            "scoreAlgorithm": {
+              "type": "sum",
+              "targets": ["all"]
+            }        
+          }
+        ]
+      },
+      {
+        "questions": [
+          {
+            "question": "What 3 words did I ask you to remember?",
+            "number": "8",
+            "inputs": [
+              {
+                "type": "prompts",
+                "labels": [ "(3 sec)", "(2 sec)" ],
+                "name": "recall2a",
+                "scoreLabel": "RC1A",
+                "scores": [
+                  {
+                    "label": "Spontaneous recall",
+                    "value": 3
+                  },
+                  {
+                    "label": "After: \"One word was something to wear.\"",
+                    "value": 2
+                  }
+                  ,
+                  {
+                    "label": "After: \"Was it SHOES, SHIRT, or SOCKS?\"",
+                    "value": 1
+                  },
+                  {
+                    "label": "Still incorrect",
+                    "value": 0
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "inputs": [
+              {
+                "type": "prompts",
+                "labels": [ "(3 sec)", "(2 sec)" ],
+                "name": "recall2b",
+                "scoreLabel": "RC1B",
+                "scores": [
+                  {
+                    "label": "Spontaneous recall",
+                    "value": 3
+                  },
+                  {
+                    "label": "After: \"One word was a color.\"",
+                    "value": 2
+                  }
+                  ,
+                  {
+                    "label": "After: \"Was it BLUE, BLACK or BROWN?\"",
+                    "value": 1
+                  },
+                  {
+                    "label": "Still incorrect",
+                    "value": 0
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "inputs": [
+              {
+                "type": "prompts",
+                "labels": [ "(3 sec)", "(2 sec)" ],
+                "name": "recall2c",
+                "scoreLabel": "RC11C",
+                "scores": [
+                  {
+                    "label": "Spontaneous recall",
+                    "value": 3
+                  },
+                  {
+                    "label": "After: \"One word was a good personal quality.\"",
+                    "value": 2
+                  }
+                  ,
+                  {
+                    "label": "After: \"Was it HONESTY, MODESTY, or CHARITY?\"",
+                    "value": 1
+                  },
+                  {
+                    "label": "Still incorrect",
+                    "value": 0
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "instructions": "For the first error only, score 0, but provide the correct answer. If subject asks examiner to repeat answer from previous step, provide the answer but score 0 at that step.",
+        "questions": [
+          {
+            "question": "",
+            "inputs": [
+              {
+                "type": "prompt",
+                "label": "9a. From 100, take away 3 = how many?    (97)",
+                "name": "subtraction1",
+                "scoreLabel": "SUB3A",
+                "scores": [
+                  {
+                    "value": 1
+                  },
+                  {
+                     "value": 0
+                  }
+                ]
+              }
+            ],
+            "scoreAlgorithm": {
+              "type": "sum",
+              "targets": ["all"]
+            }        
+          },
+          {
+            "inputs": [
+              {
+                "type": "prompt",
+                "name": "subtraction2",
+                "label": "9b. And take away 3 from that equals?  (94)",
+                "scoreLabel": "SUB3B",
+                "scores": [
+                  {
+                    "value": 1
+                  },
+                  {
+                    "value": 0
+                  }
+                ]
+              }
+            ],
+            "scoreAlgorithm": {
+              "type": "sum",
+              "targets": ["all"]
+            }        
+          },
+          {
+            "inputs": [
+              {
+                "type": "prompt",
+                "name": "subtraction3",
+                "label": "9c. Repeat \"and take away 3 again equals?\" three more times. One point each. (91) (88) (85)",
+                "preinstructions": "If a and b are both scored 0, score part c. 0.",
+                "scoreLabel": "SUB3C",
+                "scores": [
+                  {
+                    "value": 3
+                  },
+                  {
+                    "value": 2
+                  },
+                  {
+                    "value": 1
+                  },
+                  {
+                     "value": 0
+                  }
+                ]
+              }
+            ],
+            "scoreAlgorithm": {
+              "type": "sum",
+              "targets": ["all"]
+            }        
+          }
+        ]
+      },
+      {
+        "questions": [
+          {
+            "question": "What is today's date?",
+            "number": "10",
+            "inputs": [
+              {
+                "type": "text",
+                "name": "currentYear",
+                "label": "Year",
+                "scoreLabel": "YR",
+                "scores": [
+                  {
+                    "label": "Accurate",
+                    "value": 4
+                  },
+                  {
+                    "label": "Missed by 1 year",
+                    "value": 2
+                  },
+                  {
+                    "label": "Missed by 2 - 5 years",
+                    "value": 1
+                  },
+                  {
+                    "label": "Missed by >= 6 years",
+                    "value": 0
+                  }
+                ]
+              },
+              {
+                "type": "text",
+                "name": "currentMonth",
+                "label": "Month",
+                "scoreLabel": "MO",
+                "scores": [
+                  {
+                    "label": "Accurate or within 5 days",
+                    "value": 2
+                  },
+                  {
+                    "label": "Missed by one month",
+                    "value": 1
+                  },
+                  { 
+                    "label": "Missed by >= 2 months",
+                    "value": 0
+                  }
+                ]
+              },
+              {
+                "type": "text",
+                "name": "currentDay",
+                "label": "Day",
+                "scoreLabel": "DATE",
+                "scores": [
+                  {
+                    "label": "(of the month) Accurate",
+                    "value": 3
+                  },
+                  {
+                    "label": "Missed by one or two days",
+                    "value": 2
+                  },
+                  {
+                    "label": "Missed by 3-5 days",
+                    "value": 1
+                  },
+                  {
+                    "label": "Missed by >= 6 days",
+                    "value": 0
+                  }
+                ]
+              }
+            ],
+            "scoreAlgorithm": {
+              "type": "individual"
+            }        
+          }
+        ]
+      },
+      {
+        "questions": [
+          {
+            "question": "What day of the week is today?",
+            "number": "11",
+            "inputs": [
+              {
+                "type": "text",
+                "name": "weekday",
+                "label": "Day",
+                "scoreLabel": "DAY",
+                "scores": [
+                  {
+                    "label": "Accurate",
+                    "value": 1
+                  },
+                  {
+                    "label": "Inaccurate",
+                    "value": 0
+                  }
+                ]
+              }
+            ],
+            "scoreAlgorithm": {
+              "type": "individual"
+            }        
+          }
+        ]
+      },
+      {
+        "questions": [
+          {
+            "question": "What season are we in?",
+            "number": "12",
+            "postinstructions": "May provide 4 choices if necessary.",
+            "inputs": [
+              {
+                "type": "text",
+                "name": "season",
+                "label": "Season",
+                "scoreLabel": "SSN",
+                "scores": [
+                  {
+                    "label": "Accurate within 1 month",
+                    "value": 1
+                  },
+                  {
+                    "label": "Inaccurate > 1 month",
+                    "value": 0
+                  }
+                ]
+              }
+            ],
+            "scoreAlgorithm": {
+              "type": "individual"
+            }        
+          }
+        ]
+      },
+      {
+        "questions": [
+          {
+            "question": "What ________ are we in?",
+            "number": "13a",
+            "inputs": [
+              {
+                "type": "text",
+                "name": "currentState",
+                "label": "State",
+                "scoreLabel": "SPA",
+                "scores": [
+                  {
+                    "value": 2
+                  },
+                  {
+                    "value": 0
+                  }
+                ]
+              },
+              {
+                "type": "text",
+                "name": "currentCity",
+                "label": "City/Town/Village",
+                "scores": [
+                  {
+                    "value": 2
+                  },
+                  {
+                    "value": 0
+                  }
+                ]
+              }
+            ],
+            "scoreAlgorithm": {
+              "type": "individual"
+            }        
+          },
+          {
+            "question": "Is this place a hospital (clinic), a store, or a home?",
+            "number": "13b",
+            "inputs": [
+              {
+                "type": "text",
+                "name": "currentLocation",
+                "label": "Location",
+                "scoreLabel": "SPB",
+                "scores": [
+                  {
+                    "value": 1
+                  },
+                  {
+                    "value": 0
+                  }
+                ]
+              }
+            ],
+            "scoreAlgorithm": {
+              "type": "individual"
+            }        
+          }
+        ]
+      },
+      {
+        "questions": [
+          {
+            "question": "What animals have 4 legs? Tell me as many as you can.",
+            "number": "14",
+            "postinstructions": "30 sec.",
+            "inputs": [
+              {
+                "type": "textarea",
+                "name": "animals",
+                "label": "Animals",
+                "scoreLabel": "ANML",
+                "scores": [
+                  {
+                    "value": 10
+                  },
+                  {
+                    "value": 9
+                  },
+                  {
+                    "value": 8
+                  },
+                  {
+                    "value": 7
+                  },
+                  {
+                    "value": 6
+                  },
+                  {
+                    "value": 5
+                  },
+                  {
+                    "value": 4
+                  },
+                  {
+                    "value": 3
+                  },
+                  {
+                    "value": 2
+                  },
+                  {
+                    "value": 1
+                  },
+                  {
+                    "value": 0
+                  }
+                ]
+              }
+            ],
+            "scoreAlgorithm": {
+              "type": "individual"
+            }        
+          }
+        ]
+      },
+      {
+        "preinstructions": "15. An orange and a banana are both fruit. ",
+        "instructions": "Pause for 2 sec, then ask:",
+        "questions": [
+          {
+            "preinstructions": "Coach for correct answer for first one only.",
+            "inputs": [
+              {
+                "type": "prompt",
+                "label": "15a. An arm and a leg are both ______?", 
+                "name": "armAndLeg",
+                "scoreLabel": "SIM",
+                "scores": [
+                  {
+                    "label": "Body parts, limbs, extremities",
+                    "value": 2
+                  },
+                  {
+                    "label": "Long, bend, muscles, bones, etc.",
+                    "value": 1
+                  },
+                  {
+                    "label": "Incorrect; DK; tells difference",
+                    "value": 0
+                  }
+                ]
+              },
+              {
+                "type": "prompt",
+                "label": "15b. Laughing and crying are both ______?", 
+                "name": "laugh",
+                "scores": [
+                  {
+                    "label": "Expressions of feelings/emotions",
+                    "value": 2
+                  },
+                  {
+                    "label": "Other correct answer.",
+                    "value": 1
+                  },
+                  {
+                    "label": "Incorrect; DK; tells difference",
+                    "value": 0
+                  }
+                ]
+              },
+              {
+                "type": "prompt",
+                "label": "15c. Eating and sleeping are both ______?", 
+                "name": "eat",
+                "scores": [
+                  {
+                    "label": "Necessary bodily functions",
+                    "value": 2
+                  },
+                  {
+                    "label": "Other correct answer.",
+                    "value": 1
+                  },
+                  {
+                    "label": "Incorrect; DK; tells difference",
+                    "value": 0
+                  }
+                ]
+              }
+            ],
+            "scoreAlgorithm": {
+              "type": "individual"
+            }        
+          }
+        ]
+      },
+      {
+         "questions": [
+          {
+            "question": "What actions would you take if you saw your neighbor's house catching fire?", 
+            "number": "16a",
+            "postinstructions": "Prompt \"What else might you do?\" once only, if necessary.",
+            "inputs": [
+              {
+                "type": "prompt",
+                "label": "Number of appropriate actions", 
+                "scoreLabel": "JGMT",
+                "name": "fire",
+                "scores": [
+                  {
+                    "value": 2
+                  },
+                  {
+                    "value": 1
+                  },
+                  {
+                    "value": 0
+                  }
+                ]
+              }
+            ]
+          },
+          { 
+            "question": "What actions would you take if you lost a borrowed umbrella?",
+            "number": "16b",
+            "postinstructions": "1 point for each category of actions: ",
+            "inputs": [
+              {
+                "type": "prompt",
+                "name": "umbrella",
+                "label": "Inform/Apologize; Replace/Compensate",
+                "scores": [
+                  {
+                    "value": 2
+                  },
+                  {
+                    "value": 1
+                  },
+                  {
+                    "value": 0
+                  }
+                ]
+              }
+            ],
+            "scoreAlgorithm": {
+              "type": "individual"
+            }        
+          },
+          { 
+            "inputs": [
+              {
+                "type": "prompt",
+                "label": "16c. What would you do if you found an envelope that was sealed, addressed, and had a new stamp?",
+                "name": "envelope",
+                "scores": [
+                  {
+                    "label": "Mail",
+                    "value": 2
+                  },
+                  {
+                    "label": "Try to locate owner",
+                    "value": 1
+                  },
+                  {
+                    "label": "Inappropriate action",
+                    "value": 0
+                  }
+                ]
+              }
+            ],
+            "scoreAlgorithm": {
+              "type": "individual"
+            }        
+          }
+        ]
+      },
+      { 
+        "questions": [
+          {
+            "question": "Repeat exactly what I say.",
+            "number": "17a",
+            "inputs": [
+              {
+                "type": "prompt",
+                "label": "\"He would like to go home.\" (2 sec)",
+                "name": "repeathome",
+                "scoreLabel": "RPTA",
+                "scores": [
+                  {
+                    "label": "Correct",
+                    "value": 2
+                  },
+                  {
+                    "label": "1 or 2 missed or wrong words",
+                    "value": 1
+                  },
+                  {
+                    "label": ">= 3 missed or wrong words",
+                    "value": 0
+                  }
+                ]
+              }
+            ],
+            "scoreAlgorithm": {
+              "type": "individual"
+            }        
+          },
+          {
+            "preinstructions": "(for each part, only score 1 if repeated exactly as given)",
+            "question": "\"Now repeat:",
+            "number": "17b",
+            "inputs": [
+              {
+                "type": "prompt",
+                "label": "The yellow circle...",
+                "name": "circle",
+                "scoreLabel": "RTPB",
+                "scores": [
+                  {
+                    "value": 1
+                  },
+                  {
+                    "value": 0
+                  }
+                ]
+              },
+              {
+                "type": "prompt",
+                "label": "if heavier than...",
+                "name": "heavier",
+                "scores": [
+                  {
+                    "value": 1
+                  },
+                  {
+                    "value": 0
+                  }
+                ]
+              },
+              {
+                "type": "prompt",
+                "label": "the blue square...",
+                "name": "square",
+                "scores": [
+                  {
+                    "value": 1
+                  },
+                  {
+                    "value": 0
+                  }
+                ]
+              }
+            ],
+            "scoreAlgorithm": {
+              "type": "individual"
+            }        
+          }
+        ]
+      },
+      { 
+        "questions": [
+          {
+            "question": "Please do this:",
+            "number": "18",
+            "inputs": [
+              {
+                "type": "prompt",
+                "preinstructions": "(Point to the statement \"Raise your hand.\")",
+                "postinstructions": "(Allow 5 seconds for each stage.)",
+                "name": "raiseHand",
+                "scoreLabel": "READ",
+                "scores": [
+                  {
+                    "label": "Raises hand without prompting",
+                    "value": 3
+                  },
+                  {
+                    "label": "Raises hand after prompting",
+                    "value": 2
+                  },
+                  {
+                    "label": "Reads correctly, but does not raise hand",
+                    "value": 1
+                  },
+                  {
+                    "label": "Neither reads nor obeys",
+                    "value": 0
+                  }
+                ]
+              }
+            ],
+            "scoreAlgorithm": {
+              "type": "individual"
+            }        
+          }
+        ]
+      },
+      { 
+        "questions": [
+          {
+            "question": "Let me have a sample of your handwriting.",
+            "number": "19",
+            "inputs": [
+              {
+                "type": "prompt",
+                "label": "Please write: He would like to go home. (1 min.)",
+                "postinstructions": "(may dictate 1 word at a time, if necessary)",
+                "scoreLabel": "WRITE",
+                "name": "handwriting",
+                "scores": [
+                  {
+                    "value": 5
+                  },
+                  {
+                    "value": 4
+                  },
+                  {
+                    "value": 3
+                  },
+                  {
+                    "value": 2
+                  },
+                  {
+                    "value": 1
+                  },
+                  {
+                    "value": 0
+                  }
+                ]
+              }
+            ],
+            "scoreAlgorithm": {
+              "type": "individual"
+            }        
+          }
+        ]
+      },
+      { 
+        "questions": [
+          {
+            "question": "Please copy this.",
+            "number": "20",
+            "postinstructions": "(show pentagons - 1 min.)",
+            "inputs": [
+              {
+                "type": "prompt",
+                "label": "Left pentagon",
+                "name": "leftPentagon",
+                "scoreLabel": "DRAW",
+                "scores": [
+                  {
+                    "label": "5 approx. equal sides",
+                    "value": 4
+                  },
+                  {
+                    "label": "5 but unequal (>2:1) sides",
+                    "value": 3
+                  },
+                  {
+                    "label": "Any other enclosed figure",
+                    "value": 2
+                  },
+                  {
+                    "label": ">= 2 lines but without closure",
+                    "value": 1
+                  },
+                  {
+                    "label": "Less than two lines",
+                    "value": 0
+                  }
+                ]
+              },
+              {
+                "type": "prompt",
+                "label": "Right pentagon",
+                "name": "rightPentagon",
+                "scores": [
+                  {
+                    "label": "5 approx. equal sides",
+                    "value": 4
+                  },
+                  {
+                    "label": "5 but unequal (>2:1) sides",
+                    "value": 3
+                  },
+                  {
+                    "label": "Any other enclosed figure",
+                    "value": 2
+                  },
+                  {
+                    "label": ">= 2 lines but without closure",
+                    "value": 1
+                  },
+                  {
+                    "label": "Less than two lines",
+                    "value": 0
+                  }
+                ]
+              },
+              {
+                "type": "prompt",
+                "label": "Intersection",
+                "name": "intersection",
+                "scores": [
+                  {
+                    "label": "4 cornered",
+                    "value": 2
+                  },
+                  {
+                    "label": "Not 4-cornered enclosure",
+                    "value": 1
+                  },
+                  {
+                    "label": "No enclosure",
+                    "value": 0
+                  }
+                ]
+              }
+            ],
+            "scoreAlgorithm": {
+              "type": "individual"
+            }        
+          }
+        ]
+      },
+      { 
+        "questions": [
+          {
+            "preinstructions": "(note for this question, do not repeat any part of the commmand) (use non-dominant hand - 6 sec.)",
+            "number": "21",
+            "question": "Take this paper with your",
+            "postinstructions": "",
+            "inputs": [
+              {
+                "type": "prompt",
+                "label": "L (R) hand",
+                "name": "hand",
+                "scoreLabel": "CMD",
+                "scores": [
+                  {
+                    "value": 1
+                  },
+                  {
+                    "value": 0
+                  }
+                ]
+              },
+              {
+                "type": "prompt",
+                "label": "fold in half, and",
+                "name": "fold",
+                "scores": [
+                  {
+                    "value": 1
+                  },
+                  {
+                    "value": 0
+                  }
+                ]
+              },
+              {
+                "type": "prompt",
+                "label": "hand it back to me.",
+                "name": "return",
+                "scores": [
+                  {
+                    "value": 1
+                  },
+                  {
+                    "value": 0
+                  }
+                ]
+              }
+            ],
+            "scoreAlgorithm": {
+              "type": "individual"
+            }        
+          }
+        ]
+      },
+      {
+        "questions": [
+          {
+            "question": "What 3 words did I ask you to remember?",
+            "number": "22",
+            "inputs": [
+              {
+                "type": "prompts",
+                "labels": [ "(3 sec)", "(2 sec)" ],
+                "name": "recall3a",
+                "scoreLabel": "RC2A",
+                "scores": [
+                  {
+                    "label": "Spontaneous recall",
+                    "value": 3
+                  },
+                  {
+                    "label": "After: \"One word was something to wear.\"",
+                    "value": 2
+                  }
+                  ,
+                  {
+                    "label": "After: \"Was it SHOES, SHIRT, or SOCKS?\"",
+                    "value": 1
+                  },
+                  {
+                    "label": "Still incorrect",
+                    "value": 0
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "inputs": [
+              {
+                "type": "prompts",
+                "labels": [ "(3 sec)", "(2 sec)" ],
+                "name": "recall3b",
+                "scoreLabel": "RC2B",
+                "scores": [
+                  {
+                    "label": "Spontaneous recall",
+                    "value": 3
+                  },
+                  {
+                    "label": "After: \"One word was a color.\"",
+                    "value": 2
+                  }
+                  ,
+                  {
+                    "label": "After: \"Was it BLUE, BLACK or BROWN?\"",
+                    "value": 1
+                  },
+                  {
+                    "label": "Still incorrect",
+                    "value": 0
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "inputs": [
+              {
+                "type": "prompts",
+                "labels": [ "(3 sec)", "(2 sec)" ],
+                "name": "recall3c",
+                "scoreLabel": "RC2C",
+                "scores": [
+                  {
+                    "label": "Spontaneous recall",
+                    "value": 3
+                  },
+                  {
+                    "label": "After: \"One word was a good personal quality.\"",
+                    "value": 2
+                  }
+                  ,
+                  {
+                    "label": "After: \"Was it HONESTY, MODESTY, or CHARITY?\"",
+                    "value": 1
+                  },
+                  {
+                    "label": "Still incorrect",
+                    "value": 0
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      { 
+        "questions": [
+          {
+            "question": "What do we call this part of the body?",
+            "number": "23",
+            "postinstructions": "(2 sec. each)",
+            "inputs": [
+              {
+                "type": "prompt",
+                "label": "Brow/forehead",
+                "name": "forehead",
+                "scoreLabel": "BODY",
+                "scores": [
+                  {
+                    "value": 1
+                  },
+                  {
+                    "value": 0
+                  }
+                ]
+              },
+              {
+                "type": "prompt",
+                "label": "Jaw/chin",
+                "name": "chin",
+                "scores": [
+                  {
+                    "value": 1
+                  },
+                  {
+                    "value": 0
+                  }
+                ]
+              },
+              {
+                "type": "prompt",
+                "label": "Shoulder",
+                "name": "shoulder",
+                "scores": [
+                  {
+                    "value": 1
+                  },
+                  {
+                    "value": 0
+                  }
+                ]
+              },
+              {
+                "type": "prompt",
+                "label": "Elbow",
+                "name": "elbow",
+                "scores": [
+                  {
+                    "value": 1
+                  },
+                  {
+                    "value": 0
+                  }
+                ]
+              }
+              ,
+              {
+                "type": "prompt",
+                "label": "Wrist",
+                "name": "wrist",
+                "scores": [
+                  {
+                    "value": 1
+                  },
+                  {
+                    "value": 0
+                  }
+                ]
+              }
+            ],
+            "scoreAlgorithm": {
+              "type": "individual"
+            }        
+          }
+        ]
+      },
+      { 
+        "questions": [
+          {
+            "question": "What is this?",
+            "number": "24",
+            "postinstructions": "(show one at a time, any order OK. Show item: 2 sec.; if unable, place in hand: 4 sec. Objects either named or spontaneously or repeated correctly after coaching.)",
+            "inputs": [
+              {
+                "type": "prompt",
+                "label": "Spoon",
+                "name": "spoon",
+                "scoreLabel": "OBJA",
+                "scores": [
+                  {
+                    "value": 1
+                  },
+                  {
+                    "value": 0
+                  }
+                ]
+              },
+              {
+                "type": "prompt",
+                "label": "Coin",
+                "name": "coin",
+                "scores": [
+                  {
+                    "value": 1
+                  },
+                  {
+                    "value": 0
+                  }
+                ]
+              },
+              {
+                "type": "prompt",
+                "label": "Toothbursh",
+                "name": "toothbrush",
+                "scoreLabel": "OBJB",
+                "scores": [
+                  {
+                    "value": 1
+                  },
+                  {
+                    "value": 0
+                  }
+                ]
+              },
+              {
+                "type": "prompt",
+                "label": "Key",
+                "name": "key",
+                "scores": [
+                  {
+                    "value": 1
+                  },
+                  {
+                    "value": 0
+                  }
+                ]
+              }
+              ,
+              {
+                "type": "prompt",
+                "label": "Comb",
+                "name": "comb",
+                "scores": [
+                  {
+                    "value": 1
+                  },
+                  {
+                    "value": 0
+                  }
+                ]
+              }
+            ],
+            "scoreAlgorithm": {
+              "type": "individual"
+            }        
+          }
+        ]
+      },
+      { 
+        "questions": [
+          {
+            "question": "Remember these 5 objects.",
+            "number": "25",
+            "postinstructions": "(wait 5 sec, cover, then ask.)",
+            "inputs": []
+          },
+          {
+            "question": "What 5 objects did I just show you?",
+            "postinstructions": "Any order is OK",
+            "inputs": [
+              {
+                "type": "prompt",
+                "label": "Spoon",
+                "scoreLabel": "RCOBJ",
+                "name": "spoon",
+                "scores": [
+                  {
+                    "value": 1
+                  },
+                  {
+                    "value": 0
+                  }
+                ]
+              },
+              {
+                "type": "prompt",
+                "label": "Coin",
+                "name": "coin",
+                "scores": [
+                  {
+                    "value": 1
+                  },
+                  {
+                    "value": 0
+                  }
+                ]
+              },
+              {
+                "type": "prompt",
+                "label": "Toothbursh",
+                "name": "toothbrush",
+                "scores": [
+                  {
+                    "value": 1
+                  },
+                  {
+                    "value": 0
+                  }
+                ]
+              },
+              {
+                "type": "prompt",
+                "label": "Key",
+                "name": "key",
+                "scores": [
+                  {
+                    "value": 1
+                  },
+                  {
+                    "value": 0
+                  }
+                ]
+              }
+              ,
+              {
+                "type": "prompt",
+                "label": "Comb",
+                "name": "comb",
+                "scores": [
+                  {
+                    "value": 1
+                  },
+                  {
+                    "value": 0
+                  }
+                ]
+              }
+            ],
+            "scoreAlgorithm": {
+              "type": "individual"
+            }        
+          }
+        ]
+      }
+    ],
+    "postquestions": {
+      "questions": [
+        {
+          "question": "Validity of score",
+          "inputs": [
+            {
+              "type": "text",
+              "label": "Specify other",
+              "name": "validity",
+              "scores": [
+                {
+                  "value": 1,
+                  "label": "Valid"
+                },
+                {
+                  "value": 2,
+                  "label": "Invalid: poor hearing"
+                },
+                {
+                  "value": 3,
+                  "label": "Invalid: poor eyesight"
+                },
+                {
+                  "value": 4,
+                  "label": "Invalid: impared motor control"
+                },
+                {
+                  "value": 5,
+                  "label": "Invalid: language barrier"
+                },
+                {
+                  "value": 6,
+                  "label": "Invalid: impaired alertness or attentiveness"
+                },
+                {
+                  "value": 7,
+                  "label": "Invalid: significant mental/physical discomfort"
+                },
+                {
+                  "value": 8,
+                  "label": "Invalid: unable to read or write"
+                },
+                {
+                  "value": 9,
+                  "label": "Invalid: other reasons (specify)"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "question": "CASI Exam Status", 
+          "inputs": [
+            {
+              "type": "text",
+              "label": "Specify other",
+              "name": "status",
+              "scores": [
+                {
+                  "value": 1,
+                  "label": "Test completed"
+                },
+                {
+                  "value": 2,
+                  "label": "Partial"
+                },
+                {
+                  "value": 3,
+                  "label": "Unable to test (severe dementia/agitation)"
+                },
+                {
+                  "value": 4,
+                  "label": "Unable to test (severe deafness)"
+                },
+                {
+                  "value": 5,
+                  "label": "Unable to test (non-verbal)"
+                },
+                {
+                  "value": 6,
+                  "label": "Unable to test - other (specify)"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  }

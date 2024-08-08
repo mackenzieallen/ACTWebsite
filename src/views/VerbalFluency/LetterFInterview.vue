@@ -7,14 +7,18 @@
         <p>If the examinee fails to make a response after any 15 – second interval, say <b class="emph">“keep going”</b>.</p>
         <p>The first time an examinee generates three consecutive words that do not start with the designated letter <b class="emph">“F”, say, the letter we are using now is “F”.</b></p>
     </div>
+
+    <VerbalFluency />
 </template>
 
 <script>
 import BaseLayout from '../BaseLayout.vue';
+import VerbalFluency from '@/components/Pages/VerbalFluency.vue';
 
 export default {
   components: {
-    BaseLayout
+    BaseLayout,
+    VerbalFluency
   }
 }
 </script>
