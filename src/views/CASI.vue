@@ -1,20 +1,48 @@
 <template>
-  <CASI />  
+  <div class="casi">
+    <BaseLayout :heading="'CASI'" />
+    <form @submit.prevent="submitForm">
+      <CASIQuestions :jsonData="jsonData" :responses="responses" @update:responses="updateResponses" />
+      <button type="submit" class="submit-button">Submit</button>
+    </form>
+  </div>
 </template>
 
 <script>
-import CASI from '../components/CASI/CASI.vue';
+import CASIQuestions from '../components/CASI/CASIQuestions.vue';
+// import jsonData from '../data/casi.json';
+import CASIController from '../controllers/CASIController';
+import BaseLayout from '../views/BaseLayout.vue';
 
 export default {
-  components: {
-    CASI
+  components: { 
+    CASIQuestions,
+    BaseLayout 
+  },
+  data() {
+    return {
+      jsonData: null,
+      responses: {},
+      controller: new CASIController()
+    };
+  },
+  async created() {
+    this.jsonData = await this.controller.initialize();
+  },
+  methods: {
+    updateResponses(name, value) {
+      this.$set(this.responses, name, value);
+    },
+    async submitForm() {
+      await this.controller.submitForm(this.responses);
+    }
   }
-}
+};
 </script>
-    
+
 <style>
 .casi {
-  max-width: 800px;
+  max-width: 1000px;
   margin: auto;
 }
 
@@ -32,8 +60,7 @@ h2 {
 }
 
 .section {
-  margin-bottom: 30px;
-  padding-bottom: 15px;
+  padding-bottom: 10px;
 }
 
 .question {
@@ -67,7 +94,7 @@ h2 {
 }
 
 .submit-button {
-  background-color: #007BFF;
+  background-color: #317391;
   color: white;
   border: none;
   padding: 12px 24px;
@@ -76,10 +103,6 @@ h2 {
   font-size: 16px;
   display: block;
   margin: 30px auto 0;
-}
-
-.submit-button:hover {
-  background-color: #0056b3;
 }
 
 .instructions {

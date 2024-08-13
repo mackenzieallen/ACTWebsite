@@ -1,26 +1,30 @@
 <template>
-    <div class="arrow-buttons-container">
-      <ArrowButton arrowDirection="left" @clicked="handleLeftArrowClick" />
-      <ArrowButton arrowDirection="right" @clicked="handleRightArrowClick" />
+    <div class="button-container">
+        <button @click="openScoringPanel" class="open-panel">
+            <i class="fas fa-bars fa-2x"></i>
+        </button>
     </div>
-
-    <div>   
-        <button @click="togglePanel">Open Panel</button>
-        <ScoringPanel ref="panel"></ScoringPanel>
-    </div>
+    
+    <!--     <div class="arrow-buttons-container">
+        <ArrowButton arrowDirection="left" @clicked="handleLeftArrowClick" />
+        <ArrowButton arrowDirection="right" @clicked="handleRightArrowClick" />
+    </div> -->
 
     <div>
         <h1 class="heading">{{ heading }}</h1>
     </div>
+
+    <ScoringPanel :isOpen="isScoringPanelOpen" @close="closeScoringPanel" />
 </template>
 
 <script>
-import ArrowButton from '@/components/ArrowButton.vue';
-import ScoringPanel from '@/components/ScoringPanel.vue';
+// import ArrowButton from '@/components/ArrowButton.vue';
+import ScoringPanel from '../components/ScoringPanel.vue';
+
 
 export default {
     components: {
-        ArrowButton,
+        //ArrowButton,
         ScoringPanel
     },
     props: {
@@ -29,6 +33,11 @@ export default {
             required: true
         }
     },
+    data() {
+        return {
+            isScoringPanelOpen: false,
+        };
+    },
     methods: {
         handleLeftArrowClick() {
             console.log('Left arrow clicked');
@@ -36,8 +45,11 @@ export default {
         handleRightArrowClick() {
             console.log('Right arrow clicked');
         },
-        togglePanel() {
-            this.$refs.panel.openPanel();
+        openScoringPanel() {
+            this.isScoringPanelOpen = true;
+        },
+        closeScoringPanel() {
+            this.isScoringPanelOpen = false;
         }
     }
 }
@@ -54,8 +66,17 @@ export default {
     line-height: 1.5;
 }
 .arrow-buttons-container {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 25px;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 25px;
+}
+.open-panel {
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+.button-container {
+    display: flex;
+    justify-content: flex-end;
 }
 </style>

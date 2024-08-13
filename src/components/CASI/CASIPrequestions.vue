@@ -3,25 +3,15 @@
     <div v-if="preQuestions.preinstructions" class="instructions">
       <p>{{ preQuestions.preinstructions }}</p>
     </div>
-    <div v-if="preQuestions.questions" class="section">
-      <h2>Prequestions</h2>
-      <CASIQuestion
-        v-for="(question, index) in preQuestions.questions"
-        :key="'pre' + index"
-        :question="question"
-        :responses="responses"
-        :section="false"
-        @update:responses="updateResponses"
-      />
-    </div>
+    <CASIQuestionsSection :questions="preQuestions.questions" :responses="responses" @update:responses="updateResponses" sectionType="pre"/>
   </div>
 </template>
 
 <script>
-import CASIQuestion from './CASIQuestion.vue';
+import CASIQuestionsSection from './CASIQuestionsSection.vue';
 
 export default {
-  components: { CASIQuestion },
+  components: { CASIQuestionsSection },
   props: {
     preQuestions: Object,
     responses: Object
@@ -33,3 +23,9 @@ export default {
   }
 };
 </script>
+
+<style scoped>
+.pre-questions {
+  margin-bottom: 50px;
+}
+</style>

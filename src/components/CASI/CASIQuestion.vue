@@ -5,10 +5,10 @@
     <p v-if="question.examples" class="examples">
       <strong class="examples-title">Examples:</strong>
       <ul class="examples-list">
-        <li v-for="(exampleGroup, key) in question.examples" :key="'exampleGroup' + key" class="example-group">
-          <strong class="example-group-title">{{ key.charAt(0).toUpperCase() + key.slice(1) }} reasons:</strong>
+        <li v-for="(exampleGroup, key) in question.examples" :key="key" class="example-group">
+          <div class="example-group-title">{{ key.charAt(0).toUpperCase() + key.slice(1) }} reasons:</div>
           <ul class="example-list">
-            <li v-for="(example, index) in exampleGroup" :key="'example' + index" class="example-item">{{ example }}</li>
+            <li v-for="(example, index) in exampleGroup" :key="index" class="example-item">{{ example }}</li>
           </ul>
         </li>
       </ul>
@@ -21,7 +21,6 @@
       :key="inputIndex"
       :input="input"
       :modelValue="responses[input.name]"
-      :question="question.question"
       @update:responses="updateResponse"
     />
   </div>
@@ -83,7 +82,6 @@ export default {
   font-weight: bold;
   color: #333;
   margin-bottom: 10px;
-  display: block;
 }
 
 .examples-list {
@@ -92,15 +90,14 @@ export default {
 }
 
 .example-group {
-  margin-bottom: 10px;
+  margin-top: 30px;
 }
 
 .example-group-title {
   font-size: 1.1em;
   font-weight: bold;
   color: #333;
-  margin-bottom: 5px;
-  display: block;
+  margin-bottom: 15px;
 }
 
 .example-list {
@@ -110,6 +107,5 @@ export default {
 .example-item {
   margin-bottom: 5px;
   color: #555;
-  list-style-type: disc;
 }
 </style>

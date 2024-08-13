@@ -1,7 +1,7 @@
 <template>
   <div>
     <CASIPreQuestions :preQuestions="jsonData.prequestions" :responses="responses" @update:responses="updateResponses" />
-    <h2>Questions</h2>
+    <div class="heading">Questions</div>
     <div v-for="(section, sectionIndex) in jsonData.sections" :key="'section' + sectionIndex" class="section">
       <h2>{{ section.title }}</h2>
       <div v-if="section.instructions" class="instructions">
@@ -9,14 +9,7 @@
           {{ instruction }}
         </span>
       </div>
-      <CASIQuestion
-        v-for="(question, questionIndex) in section.questions"
-        :key="'section' + sectionIndex + '-' + questionIndex"
-        :question="question"
-        :responses="responses"
-        :section="true"
-        @update:responses="updateResponses"
-      />
+      <CASIQuestionsSection :questions="section.questions" :responses="responses" @update:responses="updateResponses" />
     </div>
     <CASIPostQuestions :postQuestions="jsonData.postquestions" :responses="responses" @update:responses="updateResponses" />
   </div>
@@ -25,24 +18,32 @@
 <script>
 import CASIPreQuestions from './CASIPrequestions.vue';
 import CASIPostQuestions from './CASIPostquestions.vue';
-import CASIQuestion from './CASIQuestion.vue';
+import CASIQuestionsSection from './CASIQuestionsSection.vue';
 import jsonData from '../../data/casi.json';
+import { reactive } from 'vue';
 
 export default {
-  components: { CASIPreQuestions, CASIPostQuestions, CASIQuestion },
-  data() {
+  components: { CASIPreQuestions, CASIPostQuestions, CASIQuestionsSection },
+  setup() {
+    const responses = reactive({});
+
+    function updateResponses(name, value) {
+      responses[name] = value;
+    }
+
     return {
       jsonData,
-      responses: {}
+      responses,
+      updateResponses
     };
-  },
-  methods: {
-    updateResponses(name, value) {
-      this.$set(this.responses, name, value);
-    },
-    submitForm() {
-      console.log(this.responses);
-    }
   }
 };
 </script>
+
+<style scoped>
+.heading {
+  color: #555;
+  font-size: 1.5em;
+  font-weight: bold;
+}
+</style>

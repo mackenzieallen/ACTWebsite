@@ -5,25 +5,15 @@
         {{ instruction }}
       </p>
     </div>
-    <div v-if="postQuestions.questions" class="section">
-      <h2>Postquestions</h2>
-      <CASIQuestion
-        v-for="(question, index) in postQuestions.questions"
-        :key="'post' + index"
-        :question="question"
-        :responses="responses"
-        :section="true"
-        @update:responses="updateResponses"
-      />
-    </div>
+    <CASIQuestionsSection :questions="postQuestions.questions" :responses="responses" @update:responses="updateResponses" sectionType="post"/>
   </div>
 </template>
 
 <script>
-import CASIQuestion from './CASIQuestion.vue';
+import CASIQuestionsSection from './CASIQuestionsSection.vue';
 
 export default {
-  components: { CASIQuestion },
+  components: { CASIQuestionsSection },
   props: {
     postQuestions: Object,
     responses: Object
