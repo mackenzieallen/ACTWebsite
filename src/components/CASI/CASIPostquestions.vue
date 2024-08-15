@@ -5,7 +5,7 @@
         {{ instruction }}
       </p>
     </div>
-    <CASIQuestionsSection :questions="postQuestions.questions" :responses="responses" @update:responses="updateResponses" sectionType="post"/>
+    <CASIQuestionsSection :questions="postQuestions.questions" sectionType="post"/>
   </div>
 </template>
 
@@ -16,12 +16,6 @@ export default {
   components: { CASIQuestionsSection },
   props: {
     postQuestions: Object,
-    responses: Object
-  },
-  methods: {
-    updateResponses(name, value) {
-      this.$emit('update:responses', name, value);
-    }
   }
 };
 </script>

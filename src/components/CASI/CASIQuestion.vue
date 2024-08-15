@@ -1,9 +1,17 @@
 <template>
   <div class="question">
     <p class="question-text">{{ question.question }}</p>
+
+    <div v-if="question.inputs">
+      <p v-for="input in question.inputs" :key="input.name">
+        <span v-if="input.preinstructions" class="preinstructions">{{ input.preinstructions }}</span>
+      </p>
+    </div>
     
+    <p v-if="question.preinstructions" class="preinstructions">{{ question.preinstructions }}</p>
+
     <p v-if="question.examples" class="examples">
-      <strong class="examples-title">Examples:</strong>
+      <span class="examples-title">Examples:</span>
       <ul class="examples-list">
         <li v-for="(exampleGroup, key) in question.examples" :key="key" class="example-group">
           <div class="example-group-title">{{ key.charAt(0).toUpperCase() + key.slice(1) }} reasons:</div>
@@ -14,14 +22,19 @@
       </ul>
     </p>
     
+    <div v-if="question.inputs">
+      <p v-for="input in question.inputs" :key="input.name">
+        <span v-if="input.postinstructions" class="postinstructions">{{ input.postinstructions }}</span>
+      </p>
+    </div>
+
     <p v-if="question.postinstructions" class="postinstructions">{{ question.postinstructions }}</p>
-    
+
     <CASIInput
       v-for="(input, inputIndex) in question.inputs"
       :key="inputIndex"
       :input="input"
-      :modelValue="responses[input.name]"
-      @update:responses="updateResponse"
+      :modelValue="input.name"
     />
   </div>
 </template>
@@ -32,13 +45,7 @@ import CASIInput from './CASIInput.vue';
 export default {
   components: { CASIInput },
   props: {
-    question: Object,
-    responses: Object
-  },
-  methods: {
-    updateResponse(name, value) {
-      this.$emit('update:responses', name, value);
-    }
+    question: Object
   }
 };
 </script>
@@ -64,12 +71,7 @@ export default {
   vertical-align: middle;
 }
 
-.choice-label {
-  vertical-align: middle;
-}
-
 .examples {
-  font-family: Arial, sans-serif;
   margin: 15px 0;
   padding: 15px;
   border: 1px solid #ccc;
@@ -107,5 +109,21 @@ export default {
 .example-item {
   margin-bottom: 5px;
   color: #555;
+}
+
+.question-text {
+  font-size: 18px;
+  font-weight: bold;
+  margin: 10px 0;
+}
+
+.postinstructions {
+  font-size: 14px;
+  margin-bottom: 14px;
+}
+
+.examples {
+  margin-bottom: 20px;
+  color: #777;
 }
 </style>

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <CASIPreQuestions :preQuestions="jsonData.prequestions" :responses="responses" @update:responses="updateResponses" />
+    <CASIPreQuestions :preQuestions="jsonData.prequestions" />
     <div class="heading">Questions</div>
     <div v-for="(section, sectionIndex) in jsonData.sections" :key="'section' + sectionIndex" class="section">
       <h2>{{ section.title }}</h2>
@@ -9,9 +9,9 @@
           {{ instruction }}
         </span>
       </div>
-      <CASIQuestionsSection :questions="section.questions" :responses="responses" @update:responses="updateResponses" />
+      <CASIQuestionsSection :questions="section.questions" />
     </div>
-    <CASIPostQuestions :postQuestions="jsonData.postquestions" :responses="responses" @update:responses="updateResponses" />
+    <CASIPostQuestions :postQuestions="jsonData.postquestions" />
   </div>
 </template>
 
@@ -19,22 +19,17 @@
 import CASIPreQuestions from './CASIPrequestions.vue';
 import CASIPostQuestions from './CASIPostquestions.vue';
 import CASIQuestionsSection from './CASIQuestionsSection.vue';
-import jsonData from '../../data/casi.json';
-import { reactive } from 'vue';
 
 export default {
-  components: { CASIPreQuestions, CASIPostQuestions, CASIQuestionsSection },
+  props: {
+    jsonData: Object
+  }
+  components: { 
+    CASIPreQuestions, CASIPostQuestions, CASIQuestionsSection 
+  },
   setup() {
-    const responses = reactive({});
-
-    function updateResponses(name, value) {
-      responses[name] = value;
-    }
-
     return {
-      jsonData,
-      responses,
-      updateResponses
+      jsonData
     };
   }
 };

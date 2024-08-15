@@ -1,41 +1,51 @@
 <template>
   <div class="casi">
-    <BaseLayout :heading="'CASI'" />
+   <BaseLayout :heading="'CASI'" />
     <form @submit.prevent="submitForm">
-      <CASIQuestions :jsonData="jsonData" :responses="responses" @update:responses="updateResponses" />
+      <CASIQuestions :jsonData="jsonData" />
       <button type="submit" class="submit-button">Submit</button>
     </form>
+  </div>
+
+  <div>
+
   </div>
 </template>
 
 <script>
-import CASIQuestions from '../components/CASI/CASIQuestions.vue';
-// import jsonData from '../data/casi.json';
-import CASIController from '../controllers/CASIController';
+/* import CASIQuestions from '../components/CASI/CASIQuestions.vue';
 import BaseLayout from '../views/BaseLayout.vue';
+ */
+ import CASIController from '../controllers/CASIController';
+ import jsonData from '../data/casi.json';
 
 export default {
   components: { 
-    CASIQuestions,
-    BaseLayout 
+   // CASIQuestions,
+    //BaseLayout 
   },
   data() {
     return {
-      jsonData: null,
-      responses: {},
       controller: new CASIController()
     };
   },
-  async created() {
-    this.jsonData = await this.controller.initialize();
+   mounted() {
+    // console.log("mounted");
+    // this.controller.loadData();
+    // this.jsonData = this.controller.model.data;
+    // console.log(JSON.stringify(this.jsonData));
+
+    console.log(this.controller.model.data);
   },
   methods: {
-    updateResponses(name, value) {
-      this.$set(this.responses, name, value);
-    },
     async submitForm() {
-      await this.controller.submitForm(this.responses);
+      await this.controller.submitForm(this.jsonData);
     }
+  },
+  setup() {
+    return {
+      jsonData
+    };
   }
 };
 </script>
@@ -59,17 +69,16 @@ h2 {
   margin-bottom: 20px;
 }
 
+p {
+  font-size: 14px;
+}
+
 .section {
   padding-bottom: 10px;
 }
 
 .question {
   margin-bottom: 20px;
-}
-
-.question-text {
-  font-size: 1.2em;
-  margin: 10px 0;
 }
 
 .input-group {
@@ -89,10 +98,6 @@ h2 {
   border-radius: 4px;
 }
 
-.choice-label {
-  margin-left: 8px;
-}
-
 .submit-button {
   background-color: #317391;
   color: white;
@@ -106,26 +111,19 @@ h2 {
 }
 
 .instructions {
-  margin-bottom: 20px;
-  font-style: italic;
+  font-size: 14px;
+  margin-bottom: 30px;
   color: #555;
 }
 
 .introduction {
   margin-bottom: 20px;
-  font-style: italic;
   color: #555;
 }
 
-.examples {
-  margin-bottom: 20px;
-  font-style: italic;
-  color: #777;
-}
 
 .scores {
   margin-top: 10px;
-  font-style: italic;
   color: #777;
 }
 

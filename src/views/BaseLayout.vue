@@ -1,7 +1,7 @@
 <template>
     <div class="button-container">
         <button @click="openScoringPanel" class="open-panel">
-            <i class="fas fa-bars fa-2x"></i>
+            <i class="fas fa-bars fa bars"></i>
         </button>
     </div>
     
@@ -58,8 +58,10 @@ export default {
 
 <style scoped>
 .heading {
-    font-weight: bold;
+    font-weight: normal;
     font-size: 36px;
+    text-align: left;
+    margin-bottom: 14px;
 }
 .instructions {
     font-size: 20px;
@@ -71,9 +73,17 @@ export default {
     margin-top: 25px;
 }
 .open-panel {
-    background: none;
     border: none;
+    background: #237091;
+    color: white;
+    border-radius: 5px;
+    width: 38px;
+    height: 38px;
     cursor: pointer;
+}
+.bars {
+    justify-content: center;
+    display: flex;
 }
 .button-container {
     display: flex;

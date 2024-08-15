@@ -2,11 +2,14 @@ import CASIModel from '../models/CASIModel';
 
 class CasiController {
     constructor() {
-        this.model = null;
+        this.model = new CASIModel();
+        const data = import('../data/casi.json'); 
+        this.model.data = data; 
     }
 
-    async initialize() {
-        this.model = await CASIModel.fetchData();
+    async loadData() {
+        this.model = new CASIModel();
+        await CASIModel.fetchData();
         return this.model.data;
     }
 
