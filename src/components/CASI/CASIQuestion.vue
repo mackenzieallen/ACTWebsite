@@ -34,7 +34,7 @@
       v-for="(input, inputIndex) in question.inputs"
       :key="inputIndex"
       :input="input"
-      :modelValue="input.name"
+      :modelValue="''"
     />
   </div>
 </template>

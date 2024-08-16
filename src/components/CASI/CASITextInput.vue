@@ -31,18 +31,18 @@ export default defineComponent({
         let debounceTimeout = null;
 
         function handleTextInput(event) {
-        const value = event.target.value;
-        textInput.value = value;
+            const value = event.target.value;
+            textInput.value = value;
 
-        if (debounceTimeout) {
-            clearTimeout(debounceTimeout);
-        }
+            if (debounceTimeout) {
+                clearTimeout(debounceTimeout);
+            }
 
-        debounceTimeout = setTimeout(() => {
-            console.log(`Text Input - Name: ${input.value.name}, Value: ${value}`);
-            input.value.value.enteredText = value;
-            console.log("Updated JSON:", input.value);
-        }, 1000);
+            debounceTimeout = setTimeout(() => {
+                console.log(`Text Input - Name: ${input.value.name}, Value: ${value}`);
+                input.value.value.enteredText = value;
+                console.log("Updated JSON:", input.value);
+            }, 1000);
         }
 
         return {

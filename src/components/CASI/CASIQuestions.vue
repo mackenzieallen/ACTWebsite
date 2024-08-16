@@ -22,16 +22,14 @@ import CASIQuestionsSection from './CASIQuestionsSection.vue';
 
 export default {
   props: {
-    jsonData: Object
-  }
+    jsonData: {
+      type: Object,
+      required: true,
+    },
+  },
   components: { 
     CASIPreQuestions, CASIPostQuestions, CASIQuestionsSection 
   },
-  setup() {
-    return {
-      jsonData
-    };
-  }
 };
 </script>
 

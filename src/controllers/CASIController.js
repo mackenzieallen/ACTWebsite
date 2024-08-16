@@ -4,21 +4,21 @@ class CasiController {
 
     constructor() {
         this.model = this.newModel()
-        
-
     }
     
-    newModel() { return new CASIModel() }
+    newModel() { 
+        return new CASIModel() 
+    }
 
     async loadData() {
         await this.model.fetchData();
     }
 
-    async submitForm(responses) {
+    async submitForm() {
         if (!this.model) {
             throw new Error('Error initializing model');
         }
-        await this.model.saveData(responses);
+        await this.model.saveData();
     }
 }
 
