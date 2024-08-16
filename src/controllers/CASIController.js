@@ -1,16 +1,17 @@
 import CASIModel from '../models/CASIModel';
 
 class CasiController {
+
     constructor() {
-        this.model = new CASIModel();
-        const data = import('../data/casi.json'); 
-        this.model.data = data; 
+        this.model = this.newModel()
+        
+
     }
+    
+    newModel() { return new CASIModel() }
 
     async loadData() {
-        this.model = new CASIModel();
-        await CASIModel.fetchData();
-        return this.model.data;
+        await this.model.fetchData();
     }
 
     async submitForm(responses) {

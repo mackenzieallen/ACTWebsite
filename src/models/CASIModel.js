@@ -1,13 +1,18 @@
+import localData from '../data/casi.json';
+
 class CasiModel {
+
     constructor(data = {}) {
         this.data = data;
     }
+
+    loadLocalData() {
+        this.data = localData
+    }
   
     // Simulating fetching data (this will eventually be an API call? should it match the casi.json?)
-    static async fetchData() {
-        const jsonData = import('../data/casi.json');
-        console.log("loaded: "+jsonData);
-        return new CasiModel(jsonData);
+    async fetchData() {
+        this.loadLocalData();
     }
   
     async saveData(responses) {

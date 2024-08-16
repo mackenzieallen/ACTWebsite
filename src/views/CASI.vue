@@ -1,10 +1,11 @@
 <template>
   <div class="casi">
-   <BaseLayout :heading="'CASI'" />
+    Hello
+   <!-- <BaseLayout :heading="'CASI'" />
     <form @submit.prevent="submitForm">
       <CASIQuestions :jsonData="jsonData" />
       <button type="submit" class="submit-button">Submit</button>
-    </form>
+    </form> -->
   </div>
 
   <div>
@@ -13,38 +14,44 @@
 </template>
 
 <script>
-/* import CASIQuestions from '../components/CASI/CASIQuestions.vue';
-import BaseLayout from '../views/BaseLayout.vue';
- */
- import CASIController from '../controllers/CASIController';
- import jsonData from '../data/casi.json';
+// import CASIQuestions from '../components/CASI/CASIQuestions.vue';
+// import BaseLayout from '../views/BaseLayout.vue';
+
+ import CASIController from '../controllers/CASIController'
 
 export default {
   components: { 
-   // CASIQuestions,
-    //BaseLayout 
+  //  CASIQuestions,
+  //   BaseLayout 
   },
+
   data() {
     return {
-      controller: new CASIController()
-    };
+      controller: new CASIController(),
+      jsonData: null
+    }
   },
-   mounted() {
-    // console.log("mounted");
-    // this.controller.loadData();
-    // this.jsonData = this.controller.model.data;
-    // console.log(JSON.stringify(this.jsonData));
 
-    console.log(this.controller.model.data);
+  async mounted() {
+    this.loadData()
   },
+
   methods: {
+
+    async loadData() {
+      await this.controller.loadData()
+      this.jsonData = this.controller.model.data
+      console.log("[CASI] loadData: " + JSON.stringify(this.jsonData))
+    },
+
     async submitForm() {
       await this.controller.submitForm(this.jsonData);
     }
   },
+
   setup() {
     return {
-      jsonData
+      
     };
   }
 };
