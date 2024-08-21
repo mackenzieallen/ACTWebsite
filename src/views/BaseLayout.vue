@@ -14,7 +14,7 @@
         <h1 class="heading">{{ heading }}</h1>
     </div>
 
-    <ScoringPanel :isOpen="isScoringPanelOpen" @close="closeScoringPanel" />
+    <ScoringPanel :isOpen="isScoringPanelOpen" :totalScore="totalScore" @close="closeScoringPanel" />
 </template>
 
 <script>
@@ -31,6 +31,10 @@ export default {
         heading: {
             type: String,
             required: true
+        },
+        totalScore: { 
+            type: Number,
+            default: 0
         }
     },
     data() {
@@ -61,7 +65,8 @@ export default {
     font-weight: normal;
     font-size: 36px;
     text-align: left;
-    margin-bottom: 14px;
+    margin-bottom: 30px;
+    color: #237091;
 }
 .instructions {
     font-size: 20px;
@@ -88,5 +93,10 @@ export default {
 .button-container {
     display: flex;
     justify-content: flex-end;
+    position: sticky;
+    top: 0;
+    background-color: white;
+    z-index: 1000;
+    padding: 20px;
 }
 </style>

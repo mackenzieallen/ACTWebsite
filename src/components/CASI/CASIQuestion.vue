@@ -1,26 +1,21 @@
 <template>
   <div class="question">
-    <p class="question-text">{{ question.question }}</p>
+    <div class="question-container">
+      <div v-if="question.number" class="question-number">
+        {{ question.number + '.' }}
+      </div>
+      <div class="question-text">
+        {{ question.question }}
+      </div>
+    </div>
 
     <div v-if="question.inputs">
       <p v-for="input in question.inputs" :key="input.name">
         <span v-if="input.preinstructions" class="preinstructions">{{ input.preinstructions }}</span>
       </p>
     </div>
-    
-    <p v-if="question.preinstructions" class="preinstructions">{{ question.preinstructions }}</p>
 
-    <p v-if="question.examples" class="examples">
-      <span class="examples-title">Examples:</span>
-      <ul class="examples-list">
-        <li v-for="(exampleGroup, key) in question.examples" :key="key" class="example-group">
-          <div class="example-group-title">{{ key.charAt(0).toUpperCase() + key.slice(1) }} reasons:</div>
-          <ul class="example-list">
-            <li v-for="(example, index) in exampleGroup" :key="index" class="example-item">{{ example }}</li>
-          </ul>
-        </li>
-      </ul>
-    </p>
+    <p v-if="question.preinstructions" class="preinstructions">{{ question.preinstructions }}</p>
     
     <div v-if="question.inputs">
       <p v-for="input in question.inputs" :key="input.name">
@@ -36,6 +31,18 @@
       :input="input"
       :modelValue="''"
     />
+
+    <p v-if="question.examples" class="examples">
+      <span class="examples-title">Examples:</span>
+      <ul class="examples-list">
+        <li v-for="(exampleGroup, key) in question.examples" :key="key" class="example-group">
+          <div class="example-group-title">{{ key.charAt(0).toUpperCase() + key.slice(1) }} reasons:</div>
+          <ul class="example-list">
+            <li v-for="(example, index) in exampleGroup" :key="index" class="example-item">{{ example }}</li>
+          </ul>
+        </li>
+      </ul>
+    </p>
   </div>
 </template>
 
@@ -51,13 +58,9 @@ export default {
 </script>
 
 <style scoped>
-.input-group {
-  margin-bottom: 16px;
-}
-
-.input-label {
-  display: block;
-  margin-bottom: 8px;
+.input-field {
+  width: 1000px;
+  max-width: 1000px;
 }
 
 .input-field input {
@@ -89,10 +92,14 @@ export default {
 .examples-list {
   padding-left: 0;
   list-style-type: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
 }
 
 .example-group {
-  margin-top: 30px;
+  flex: 1;
+  margin-top: 10px;
 }
 
 .example-group-title {
@@ -111,10 +118,15 @@ export default {
   color: #555;
 }
 
-.question-text {
-  font-size: 18px;
-  font-weight: bold;
+.question-container {
+  display: flex;
+  align-items: center;
+  font-size: 14px;
   margin: 10px 0;
+}
+
+.question-number {
+  margin-right: 10px;
 }
 
 .postinstructions {

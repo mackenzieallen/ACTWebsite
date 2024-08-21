@@ -7,6 +7,7 @@
         >
         <input
             type="radio"
+            class="radioButtons"
             :id="`score-${scoreIndex}`"
             :name="input.name"
             :value="score.value"
@@ -41,7 +42,12 @@ export default defineComponent({
         function emitRadioChange(value) {
             console.log(`Radio Change - Name: ${input.value.name}, Value: ${value}`);
             input.value.value.selectedOption = value;
-            console.log("Updated JSON:", input.value);
+            //console.log("Updated JSON:", input.value);
+
+            this.$emit('score-added', input.value.scoreLabel, value);
+
+            console.log(`ScoreLabel: ${input.value.scoreLabel}, Selected Score: ${value}`);
+
         }
 
         return {
@@ -54,12 +60,14 @@ export default defineComponent({
 
 <style scoped>
 .input-scores {
-    margin-top: 10px;
     margin-bottom: 30px;
 }
 
 .choice-label {
     margin-left: 8px;
     font-size: 14px;
+}
+.radioButtons {
+  accent-color: #237091;;
 }
 </style>

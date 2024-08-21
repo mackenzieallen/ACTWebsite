@@ -7,7 +7,7 @@ class CasiModel {
     }
 
     loadLocalData() {
-        this.data = localData
+        this.data = localData;
     }
   
     async fetchData() {
@@ -16,7 +16,7 @@ class CasiModel {
 
     async saveData() {
         console.log('Saved data:', JSON.stringify(this.data));
-      }
+    }
 }
   
 export default CasiModel;

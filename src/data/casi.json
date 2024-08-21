@@ -161,7 +161,8 @@
                 "type": "text",
                 "name": "city",
                 "label": "City (Town, Village)",
-                "scoreLabel": "BPL",
+                "scoreLabel": "BPLC",
+                "qID": 1,
                 "scores": [
                   {
                     "value": 1
@@ -171,6 +172,7 @@
                   }
                 ],
                 "value": {
+                    "qID": 1,
                     "enteredText": "",
                     "selectedOption": null
                 }
@@ -179,6 +181,8 @@
                 "type": "text",
                 "name": "state",
                 "label": "State / Prefecture",
+                "scoreLabel": "BPLS",
+                "qID": 2,
                 "scores": [
                   {
                     "value": 1
@@ -188,15 +192,12 @@
                   }
                 ],
                 "value": {
+                    "qID": 2,
                     "enteredText": "",
                     "selectedOption": null
                 }
               }
-            ],
-            "scoreAlgorithm": {
-              "type": "sum",
-              "targets": ["all"]
-            }
+            ]
           }
         ]
       },
@@ -211,6 +212,7 @@
                 "name": "birthYear",
                 "label": "Year",
                 "scoreLabel": "BYR",
+                "qID": 3,
                 "scores": [
                   {
                     "label": "Accurate",
@@ -226,6 +228,7 @@
                   }
                 ],
                 "value": {
+                    "qID": 3,
                     "enteredText": "",
                     "selectedOption": null
                 }
@@ -235,6 +238,7 @@
                 "name": "birthMonth",
                 "label": "Month",
                 "scoreLabel": "BMO",
+                "qID": 4,
                 "scores": [
                   {
                     "value": 1
@@ -244,6 +248,7 @@
                   }
                 ],
                 "value": {
+                    "qID": 4,
                     "enteredText": "",
                     "selectedOption": null
                 }
@@ -253,6 +258,7 @@
                 "name": "birthDay",
                 "label": "Day",
                 "scoreLabel": "BDAY",
+                "qID": 5,
                 "scores": [
                   {
                     "value": 1
@@ -262,15 +268,12 @@
                   }
                 ],
                 "value": {
+                    "qID": 5,
                     "enteredText": "",
                     "selectedOption": null
                 }
               }
-            ],
-            "scoreAlgorithm": {
-              "type": "sum",
-              "targets": ["year",["month", "day"]]
-            }        
+            ]     
           }
         ]
       },
@@ -285,6 +288,7 @@
                 "name": "age",
                 "label": "Age",
                 "scoreLabel": "AGE",
+                "qID": 6,
                 "scores": [
                   {
                     "label": "Accurate",
@@ -300,15 +304,12 @@
                   }
                 ],
                 "value": {
+                    "qID": 6,
                     "enteredText": "",
                     "selectedOption": null
                 }
               }
-            ],
-            "scoreAlgorithm": {
-              "type": "sum",
-              "targets": ["all"]
-            }        
+            ]
           }
         ]
       },
@@ -323,6 +324,7 @@
                 "name": "minutes",
                 "label": "Minutes/Days",
                 "scoreLabel": "MNT",
+                "qID": 7,
                 "instructions": "Score 2 if either question is answered correctly.",
                 "scores": [
                   {
@@ -333,15 +335,12 @@
                   }
                 ],
                 "value": {
+                    "qID": 7,
                     "enteredText": "",
                     "selectedOption": null
                 }
               }
-            ],
-            "scoreAlgorithm": {
-              "type": "sum",
-              "targets": ["all"]
-            }        
+            ]       
           }
         ]
       },
@@ -356,6 +355,7 @@
                 "name": "sun",
                 "label": "Direction of setting sun",
                 "scoreLabel": "SUN",
+                "qID": 8,
                 "instructions": "If confused, may provide 4 choices.",
                 "scores": [
                   {
@@ -366,15 +366,12 @@
                   }
                 ],
                 "value": {
+                    "qID": 8,
                     "enteredText": "",
                     "selectedOption": null
                 }
               }
-            ],
-            "scoreAlgorithm": {
-              "type": "sum",
-              "targets": ["all"]
-            }        
+            ]     
           }
         ]
       },
@@ -385,10 +382,11 @@
             "number": "6a",
             "inputs": [
               {
-                "type": "choice",
+                "type": "prompt",
                 "name": "recall",
                 "scoreLabel": "RGS1",
-                "label": [
+                "qID": 9,
+                "labelArray": [
                   "Shirt, Brown, Honesty",
                   "Shoes, Black, Modesty",
                   "Socks, Blue, Charity"
@@ -408,23 +406,21 @@
                   }
                 ],
                 "value": {
+                    "qID": 9,
                     "selectedOption": null
-                }              }
-            ],
-            "scoreAlgorithm": {
-              "type": "sum",
-              "targets": ["all"]
-            }        
+                }              
+              }
+            ]
           },
           {
-            "question": "",
-            "number": "",
+            "question": "If the participant can't answer the first time, elaborate and repeat up to 3 times. Score best performance.",
+            "number": "6b",
             "inputs": [
               {
                 "type": "prompt",
                 "name": "recallb",
-                "label": "6b. If the participant can't answer the first time, elaborate and repeat up to 3 times. Score best performance.",
                 "scoreLabel": "RGS2",
+                "qID": 10,
                 "scores": [
                   {
                     "value": 3
@@ -440,13 +436,11 @@
                   }
                 ],
                 "value": {
+                    "qID": 10,
                     "selectedOption": null
-                }              }
-            ],
-            "scoreAlgorithm": {
-              "type": "sum",
-              "targets": ["all"]
-            }        
+                }             
+              }
+            ]       
           }
         ]
       },
@@ -462,6 +456,7 @@
                 "name": "dba",
                 "label": "1 - 2 - 3",
                 "scoreLabel": "DBA",
+                "qID": 11,
                 "instructions": "If unable, coach 3-2-1, but score 0.",
                 "scores": [
                   {
@@ -472,12 +467,15 @@
                   }
                 ],
                 "value": {
+                    "qID": 11,
                     "selectedOption": null
-                }              },
+                }              
+              },
               {
                 "type": "prompt",
                 "name": "dbb",
                 "scoreLabel": "DBB",
+                "qID": 12,
                 "label": "6 - 8 - 2",
                 "scores": [
                   {
@@ -488,12 +486,15 @@
                   }
                 ],
                 "value": {
+                    "qID": 12,
                     "selectedOption": null
-                }              },
+                }              
+              },
               {
                 "type": "prompt",
                 "name": "dbc",
                 "scoreLabel": "DBC",
+                "qID": 13,
                 "label": "3 - 5 - 2 - 9",
                 "preinstructions": "If score is both 0 in DBA and DBB, score DBC 0.",
                 "scores": [
@@ -505,14 +506,11 @@
                   }
                 ],
                 "value": {
+                    "qID": 13,
                     "selectedOption": null
                 }
               }
-            ],
-            "scoreAlgorithm": {
-              "type": "sum",
-              "targets": ["all"]
-            }        
+            ]        
           }
         ]
       },
@@ -527,6 +525,7 @@
                 "labels": [ "(3 sec)", "(2 sec)" ],
                 "name": "recall2a",
                 "scoreLabel": "RC1A",
+                "qID": 14,
                 "scores": [
                   {
                     "label": "Spontaneous recall",
@@ -547,8 +546,10 @@
                   }
                 ],
                 "value": {
+                    "qID": 14,
                     "selectedOption": null
-                }              }
+                }              
+              }
             ]
           },
           {
@@ -558,6 +559,7 @@
                 "labels": [ "(3 sec)", "(2 sec)" ],
                 "name": "recall2b",
                 "scoreLabel": "RC1B",
+                "qID": 15,
                 "scores": [
                   {
                     "label": "Spontaneous recall",
@@ -578,6 +580,7 @@
                   }
                 ],
                 "value": {
+                    "qID": 15,
                     "selectedOption": null
                 }
               }
@@ -589,7 +592,8 @@
                 "type": "prompts",
                 "labels": [ "(3 sec)", "(2 sec)" ],
                 "name": "recall2c",
-                "scoreLabel": "RC11C",
+                "scoreLabel": "RC1C",
+                "qID": 16,
                 "scores": [
                   {
                     "label": "Spontaneous recall",
@@ -610,6 +614,7 @@
                   }
                 ],
                 "value": {
+                    "qID": 16,
                     "selectedOption": null
                 }
               }
@@ -621,13 +626,14 @@
         "instructions": "For the first error only, score 0, but provide the correct answer. If subject asks examiner to repeat answer from previous step, provide the answer but score 0 at that step.",
         "questions": [
           {
-            "question": "",
+            "question": "From 100, take away 3 = how many?    (97)",
+            "number": "9a",
             "inputs": [
               {
                 "type": "prompt",
-                "label": "9a. From 100, take away 3 = how many?    (97)",
                 "name": "subtraction1",
                 "scoreLabel": "SUB3A",
+                "qID": 17,
                 "scores": [
                   {
                     "value": 1
@@ -637,22 +643,21 @@
                   }
                 ],
                 "value": {
+                    "qID": 17,
                     "selectedOption": null
                 }
               }
-            ],
-            "scoreAlgorithm": {
-              "type": "sum",
-              "targets": ["all"]
-            }        
+            ]        
           },
           {
+            "question": "And take away 3 from that equals?  (94)",
+            "number": "9b",
             "inputs": [
               {
                 "type": "prompt",
                 "name": "subtraction2",
-                "label": "9b. And take away 3 from that equals?  (94)",
                 "scoreLabel": "SUB3B",
+                "qID": 18,
                 "scores": [
                   {
                     "value": 1
@@ -662,23 +667,22 @@
                   }
                 ],
                 "value": {
+                    "qID": 18,
                     "selectedOption": null
                 }
               }
-            ],
-            "scoreAlgorithm": {
-              "type": "sum",
-              "targets": ["all"]
-            }        
+            ]        
           },
           {
+            "question": "Repeat \"and take away 3 again equals?\" three more times. One point each. (91) (88) (85)",
+            "number": "9c",
             "inputs": [
               {
                 "type": "prompt",
                 "name": "subtraction3",
-                "label": "9c. Repeat \"and take away 3 again equals?\" three more times. One point each. (91) (88) (85)",
                 "preinstructions": "If a and b are both scored 0, score part c. 0.",
                 "scoreLabel": "SUB3C",
+                "qID": 19,
                 "scores": [
                   {
                     "value": 3
@@ -694,14 +698,11 @@
                   }
                 ],
                 "value": {
+                    "qID": 19,
                     "selectedOption": null
                 }
               }
-            ],
-            "scoreAlgorithm": {
-              "type": "sum",
-              "targets": ["all"]
-            }        
+            ]        
           }
         ]
       },
@@ -716,6 +717,7 @@
                 "name": "currentYear",
                 "label": "Year",
                 "scoreLabel": "YR",
+                "qID": 20,
                 "scores": [
                   {
                     "label": "Accurate",
@@ -735,6 +737,7 @@
                   }
                 ],
                 "value": {
+                    "qID": 20,
                     "enteredText": "",
                     "selectedOption": null
                 }
@@ -744,6 +747,7 @@
                 "name": "currentMonth",
                 "label": "Month",
                 "scoreLabel": "MO",
+                "qID": 21,
                 "scores": [
                   {
                     "label": "Accurate or within 5 days",
@@ -759,6 +763,7 @@
                   }
                 ],
                 "value": {
+                    "qID": 21,
                     "enteredText": "",
                     "selectedOption": null
                 }
@@ -768,6 +773,7 @@
                 "name": "currentDay",
                 "label": "Day",
                 "scoreLabel": "DATE",
+                "qID": 22,
                 "scores": [
                   {
                     "label": "(of the month) Accurate",
@@ -787,14 +793,12 @@
                   }
                 ],
                 "value": {
+                    "qID": 22,
                     "enteredText": "",
                     "selectedOption": null
                 }
               }
-            ],
-            "scoreAlgorithm": {
-              "type": "individual"
-            }        
+            ]       
           }
         ]
       },
@@ -809,6 +813,7 @@
                 "name": "weekday",
                 "label": "Day",
                 "scoreLabel": "DAY",
+                "qID": 23,
                 "scores": [
                   {
                     "label": "Accurate",
@@ -820,14 +825,12 @@
                   }
                 ],
                 "value": {
+                    "qID": 23,
                     "enteredText": "",
                     "selectedOption": null
                 }
               }
-            ],
-            "scoreAlgorithm": {
-              "type": "individual"
-            }        
+            ]       
           }
         ]
       },
@@ -843,6 +846,7 @@
                 "name": "season",
                 "label": "Season",
                 "scoreLabel": "SSN",
+                "qID": 24,
                 "scores": [
                   {
                     "label": "Accurate within 1 month",
@@ -854,14 +858,12 @@
                   }
                 ],
                 "value": {
+                    "qID": 24,
                     "enteredText": "",
                     "selectedOption": null
                 }
               }
-            ],
-            "scoreAlgorithm": {
-              "type": "individual"
-            }        
+            ]       
           }
         ]
       },
@@ -875,7 +877,8 @@
                 "type": "text",
                 "name": "currentState",
                 "label": "State",
-                "scoreLabel": "SPA",
+                "scoreLabel": "SPAS",
+                "qID": 25,
                 "scores": [
                   {
                     "value": 2
@@ -885,6 +888,7 @@
                   }
                 ],
                 "value": {
+                    "qID": 25,
                     "enteredText": "",
                     "selectedOption": null
                 }
@@ -893,6 +897,8 @@
                 "type": "text",
                 "name": "currentCity",
                 "label": "City/Town/Village",
+                "scoreLabel": "SPAC",
+                "qID": 26,
                 "scores": [
                   {
                     "value": 2
@@ -902,14 +908,12 @@
                   }
                 ],
                 "value": {
+                    "qID": 26,
                     "enteredText": "",
                     "selectedOption": null
                 }
               }
-            ],
-            "scoreAlgorithm": {
-              "type": "individual"
-            }        
+            ]     
           },
           {
             "question": "Is this place a hospital (clinic), a store, or a home?",
@@ -920,6 +924,7 @@
                 "name": "currentLocation",
                 "label": "Location",
                 "scoreLabel": "SPB",
+                "qID": 27,
                 "scores": [
                   {
                     "value": 1
@@ -929,14 +934,12 @@
                   }
                 ],
                 "value": {
+                    "qID": 27,
                     "enteredText": "",
                     "selectedOption": null
                 }
               }
-            ],
-            "scoreAlgorithm": {
-              "type": "individual"
-            }        
+            ]      
           }
         ]
       },
@@ -952,6 +955,7 @@
                 "name": "animals",
                 "label": "Animals",
                 "scoreLabel": "ANML",
+                "qID": 28,
                 "scores": [
                   {
                     "value": 10
@@ -988,28 +992,27 @@
                   }
                 ],
                 "value": {
+                    "qID": 28,
                     "selectedOption": null
                 }
               }
-            ],
-            "scoreAlgorithm": {
-              "type": "individual"
-            }        
+            ]       
           }
         ]
       },
       {
-        "preinstructions": "15. An orange and a banana are both fruit. ",
-        "instructions": "Pause for 2 sec, then ask:",
+        "instructions": "An orange and a banana are both fruit. Pause for 2 sec, then ask:",
         "questions": [
           {
             "preinstructions": "Coach for correct answer for first one only.",
+            "question": "An arm and a leg are both ______?",
+            "number": "15a",
             "inputs": [
               {
                 "type": "prompt",
-                "label": "15a. An arm and a leg are both ______?", 
                 "name": "armAndLeg",
-                "scoreLabel": "SIM",
+                "scoreLabel": "SIMA",
+                "qID": 29,
                 "scores": [
                   {
                     "label": "Body parts, limbs, extremities",
@@ -1025,58 +1028,72 @@
                   }
                 ],
                 "value": {
-                    "selectedOption": null
-                }
-              },
-              {
-                "type": "prompt",
-                "label": "15b. Laughing and crying are both ______?", 
-                "name": "laugh",
-                "scores": [
-                  {
-                    "label": "Expressions of feelings/emotions",
-                    "value": 2
-                  },
-                  {
-                    "label": "Other correct answer.",
-                    "value": 1
-                  },
-                  {
-                    "label": "Incorrect; DK; tells difference",
-                    "value": 0
-                  }
-                ],
-                "value": {
-                    "selectedOption": null
-                }
-              },
-              {
-                "type": "prompt",
-                "label": "15c. Eating and sleeping are both ______?", 
-                "name": "eat",
-                "scores": [
-                  {
-                    "label": "Necessary bodily functions",
-                    "value": 2
-                  },
-                  {
-                    "label": "Other correct answer.",
-                    "value": 1
-                  },
-                  {
-                    "label": "Incorrect; DK; tells difference",
-                    "value": 0
-                  }
-                ],
-                "value": {
+                    "qID": 29,
                     "selectedOption": null
                 }
               }
-            ],
-            "scoreAlgorithm": {
-              "type": "individual"
-            }        
-          }
+            ]        
+          },
+          {
+              "question": "Laughing and crying are both ______?",
+              "number": "15b",
+              "inputs": [
+                {
+                  "type": "prompt",
+                  "name": "laugh",
+                  "scoreLabel": "SIMB",
+                  "qID": 30,
+                  "scores": [
+                    {
+                      "label": "Expressions of feelings/emotions",
+                      "value": 2
+                    },
+                    {
+                      "label": "Other correct answer.",
+                      "value": 1
+                    },
+                    {
+                      "label": "Incorrect; DK; tells difference",
+                      "value": 0
+                    }
+                  ],
+                  "value": {
+                      "qID": 30,
+                      "selectedOption": null
+                  }
+                }
+              ]        
+            }, 
+            {
+                "question": "Eating and sleeping are both ______?",
+                "number": "15c",
+                "inputs": [
+                  {
+                    "type": "prompt",
+                    "name": "eat",
+                    "scoreLabel": "SIMC",
+                    "qID": 31,
+                    "scores": [
+                      {
+                        "label": "Necessary bodily functions",
+                        "value": 2
+                      },
+                      {
+                        "label": "Other correct answer.",
+                        "value": 1
+                      },
+                      {
+                        "label": "Incorrect; DK; tells difference",
+                        "value": 0
+                      }
+                    ],
+                    "value": {
+                        "qID": 31,
+                        "selectedOption": null
+                    }
+                  }
+                ]        
+            }
         ]
       },
       {
@@ -1089,7 +1106,8 @@
               {
                 "type": "prompt",
                 "label": "Number of appropriate actions", 
-                "scoreLabel": "JGMT",
+                "scoreLabel": "JGMTA",
+                "qID": 32,
                 "name": "fire",
                 "scores": [
                   {
@@ -1103,6 +1121,7 @@
                   }
                 ],
                 "value": {
+                    "qID": 32,
                     "selectedOption": null
                 }
               }
@@ -1117,6 +1136,8 @@
                 "type": "prompt",
                 "name": "umbrella",
                 "label": "Inform/Apologize; Replace/Compensate",
+                "scoreLabel": "JGMTB",
+                "qID": 33,
                 "scores": [
                   {
                     "value": 2
@@ -1129,20 +1150,21 @@
                   }
                 ],
                 "value": {
+                    "qID": 33,
                     "selectedOption": null
                 }
               }
-            ],
-            "scoreAlgorithm": {
-              "type": "individual"
-            }        
+            ]      
           },
           { 
+            "question": "What would you do if you found an envelope that was sealed, addressed, and had a new stamp?",
+            "number": "16c",
             "inputs": [
               {
                 "type": "prompt",
-                "label": "16c. What would you do if you found an envelope that was sealed, addressed, and had a new stamp?",
                 "name": "envelope",
+                "scoreLabel": "JGMTC",
+                "qID": 34,
                 "scores": [
                   {
                     "label": "Mail",
@@ -1158,13 +1180,11 @@
                   }
                 ],
                 "value": {
+                    "qID": 34,
                     "selectedOption": null
                 }
               }
-            ],
-            "scoreAlgorithm": {
-              "type": "individual"
-            }        
+            ]       
           }
         ]
       },
@@ -1179,6 +1199,7 @@
                 "label": "\"He would like to go home.\" (2 sec)",
                 "name": "repeathome",
                 "scoreLabel": "RPTA",
+                "qID": 35,
                 "scores": [
                   {
                     "label": "Correct",
@@ -1194,13 +1215,11 @@
                   }
                 ],
                 "value": {
+                    "qID": 35,
                     "selectedOption": null
                 }
               }
-            ],
-            "scoreAlgorithm": {
-              "type": "individual"
-            }        
+            ]       
           },
           {
             "preinstructions": "(for each part, only score 1 if repeated exactly as given)",
@@ -1211,7 +1230,8 @@
                 "type": "prompt",
                 "label": "The yellow circle...",
                 "name": "circle",
-                "scoreLabel": "RTPB",
+                "scoreLabel": "RPTBA",
+                "qID": 36,
                 "scores": [
                   {
                     "value": 1
@@ -1221,6 +1241,7 @@
                   }
                 ],
                 "value": {
+                    "qID": 36,
                     "selectedOption": null
                 }
               },
@@ -1228,6 +1249,8 @@
                 "type": "prompt",
                 "label": "if heavier than...",
                 "name": "heavier",
+                "scoreLabel": "RPTBB",
+                "qID": 37,
                 "scores": [
                   {
                     "value": 1
@@ -1237,6 +1260,7 @@
                   }
                 ],
                 "value": {
+                    "qID": 37,
                     "selectedOption": null
                 }
               },
@@ -1244,6 +1268,8 @@
                 "type": "prompt",
                 "label": "the blue square...",
                 "name": "square",
+                "scoreLabel": "RPTBC",
+                "qID": 38,
                 "scores": [
                   {
                     "value": 1
@@ -1253,13 +1279,11 @@
                   }
                 ],
                 "value": {
+                    "qID": 38,
                     "selectedOption": null
                 }
               }
-            ],
-            "scoreAlgorithm": {
-              "type": "individual"
-            }        
+            ]       
           }
         ]
       },
@@ -1275,6 +1299,7 @@
                 "postinstructions": "(Allow 5 seconds for each stage.)",
                 "name": "raiseHand",
                 "scoreLabel": "READ",
+                "qID": 39,
                 "scores": [
                   {
                     "label": "Raises hand without prompting",
@@ -1294,13 +1319,11 @@
                   }
                 ],
                 "value": {
+                    "qID": 39,
                     "selectedOption": null
                 }
               }
-            ],
-            "scoreAlgorithm": {
-              "type": "individual"
-            }        
+            ]       
           }
         ]
       },
@@ -1315,6 +1338,7 @@
                 "label": "Please write: He would like to go home. (1 min.)",
                 "postinstructions": "(may dictate 1 word at a time, if necessary)",
                 "scoreLabel": "WRITE",
+                "qID": 40,
                 "name": "handwriting",
                 "scores": [
                   {
@@ -1337,13 +1361,11 @@
                   }
                 ],
                 "value": {
+                    "qID": 40,
                     "selectedOption": null
                 }
               }
-            ],
-            "scoreAlgorithm": {
-              "type": "individual"
-            }        
+            ]       
           }
         ]
       },
@@ -1358,7 +1380,8 @@
                 "type": "prompt",
                 "label": "Left pentagon",
                 "name": "leftPentagon",
-                "scoreLabel": "DRAW",
+                "scoreLabel": "DRAWA",
+                "qID": 41,
                 "scores": [
                   {
                     "label": "5 approx. equal sides",
@@ -1382,6 +1405,7 @@
                   }
                 ],
                 "value": {
+                    "qID": 41,
                     "selectedOption": null
                 }
               },
@@ -1389,6 +1413,8 @@
                 "type": "prompt",
                 "label": "Right pentagon",
                 "name": "rightPentagon",
+                "scoreLabel": "DRAWB",
+                "qID": 42,
                 "scores": [
                   {
                     "label": "5 approx. equal sides",
@@ -1412,6 +1438,7 @@
                   }
                 ],
                 "value": {
+                    "qID": 42,
                     "selectedOption": null
                 }
               },
@@ -1419,6 +1446,8 @@
                 "type": "prompt",
                 "label": "Intersection",
                 "name": "intersection",
+                "scoreLabel": "DRAWC",
+                "qID": 43,
                 "scores": [
                   {
                     "label": "4 cornered",
@@ -1434,13 +1463,11 @@
                   }
                 ],
                 "value": {
+                    "qID": 43,
                     "selectedOption": null
                 }
               }
-            ],
-            "scoreAlgorithm": {
-              "type": "individual"
-            }        
+            ]       
           }
         ]
       },
@@ -1456,7 +1483,8 @@
                 "type": "prompt",
                 "label": "L (R) hand",
                 "name": "hand",
-                "scoreLabel": "CMD",
+                "scoreLabel": "CMDA",
+                "qID": 44,
                 "scores": [
                   {
                     "value": 1
@@ -1466,6 +1494,7 @@
                   }
                 ],
                 "value": {
+                    "qID": 44,
                     "selectedOption": null
                 }
               },
@@ -1473,6 +1502,8 @@
                 "type": "prompt",
                 "label": "fold in half, and",
                 "name": "fold",
+                "scoreLabel": "CMDB",
+                "qID": 45,
                 "scores": [
                   {
                     "value": 1
@@ -1482,6 +1513,7 @@
                   }
                 ],
                 "value": {
+                    "qID": 45,
                     "selectedOption": null
                 }
               },
@@ -1489,6 +1521,8 @@
                 "type": "prompt",
                 "label": "hand it back to me.",
                 "name": "return",
+                "scoreLabel": "CMDC",
+                "qID": 46,
                 "scores": [
                   {
                     "value": 1
@@ -1498,13 +1532,11 @@
                   }
                 ],
                 "value": {
+                    "qID": 46,
                     "selectedOption": null
                 }
               }
-            ],
-            "scoreAlgorithm": {
-              "type": "individual"
-            }        
+            ]     
           }
         ]
       },
@@ -1519,6 +1551,7 @@
                 "labels": [ "(3 sec)", "(2 sec)" ],
                 "name": "recall3a",
                 "scoreLabel": "RC2A",
+                "qID": 47,
                 "scores": [
                   {
                     "label": "Spontaneous recall",
@@ -1539,6 +1572,7 @@
                   }
                 ],
                 "value": {
+                    "qID": 47,
                     "selectedOption": null
                 }
               }
@@ -1551,6 +1585,7 @@
                 "labels": [ "(3 sec)", "(2 sec)" ],
                 "name": "recall3b",
                 "scoreLabel": "RC2B",
+                "qID": 48,
                 "scores": [
                   {
                     "label": "Spontaneous recall",
@@ -1571,6 +1606,7 @@
                   }
                 ],
                 "value": {
+                    "qID": 48,
                     "selectedOption": null
                 }
               }
@@ -1583,6 +1619,7 @@
                 "labels": [ "(3 sec)", "(2 sec)" ],
                 "name": "recall3c",
                 "scoreLabel": "RC2C",
+                "qID": 49,
                 "scores": [
                   {
                     "label": "Spontaneous recall",
@@ -1603,6 +1640,7 @@
                   }
                 ],
                 "value": {
+                    "qID": 49,
                     "selectedOption": null
                 }
               }
@@ -1621,7 +1659,8 @@
                 "type": "prompt",
                 "label": "Brow/forehead",
                 "name": "forehead",
-                "scoreLabel": "BODY",
+                "scoreLabel": "BODYA",
+                "qID": 50,
                 "scores": [
                   {
                     "value": 1
@@ -1631,6 +1670,7 @@
                   }
                 ],
                 "value": {
+                    "qID": 50,
                     "selectedOption": null
                 }
               },
@@ -1638,6 +1678,8 @@
                 "type": "prompt",
                 "label": "Jaw/chin",
                 "name": "chin",
+                "scoreLabel": "BODYB",
+                "qID": 51,
                 "scores": [
                   {
                     "value": 1
@@ -1647,6 +1689,7 @@
                   }
                 ],
                 "value": {
+                    "qID": 51,
                     "selectedOption": null
                 }
               },
@@ -1654,6 +1697,8 @@
                 "type": "prompt",
                 "label": "Shoulder",
                 "name": "shoulder",
+                "scoreLabel": "BODYC",
+                "qID": 52,
                 "scores": [
                   {
                     "value": 1
@@ -1663,6 +1708,7 @@
                   }
                 ],
                 "value": {
+                    "qID": 52,
                     "selectedOption": null
                 }
               },
@@ -1670,6 +1716,8 @@
                 "type": "prompt",
                 "label": "Elbow",
                 "name": "elbow",
+                "scoreLabel": "BODYD",
+                "qID": 53,
                 "scores": [
                   {
                     "value": 1
@@ -1679,6 +1727,7 @@
                   }
                 ],
                 "value": {
+                    "qID": 53,
                     "selectedOption": null
                 }
               }
@@ -1687,6 +1736,8 @@
                 "type": "prompt",
                 "label": "Wrist",
                 "name": "wrist",
+                "scoreLabel": "BODYE",
+                "qID": 54,
                 "scores": [
                   {
                     "value": 1
@@ -1696,13 +1747,11 @@
                   }
                 ],
                 "value": {
+                    "qID": 54,
                     "selectedOption": null
                 }
               }
-            ],
-            "scoreAlgorithm": {
-              "type": "individual"
-            }        
+            ]
           }
         ]
       },
@@ -1717,7 +1766,8 @@
                 "type": "prompt",
                 "label": "Spoon",
                 "name": "spoon",
-                "scoreLabel": "OBJA",
+                "scoreLabel": "OBJAA",
+                "qID": 55,
                 "scores": [
                   {
                     "value": 1
@@ -1727,6 +1777,7 @@
                   }
                 ],
                 "value": {
+                    "qID": 55,
                     "selectedOption": null
                 }
               },
@@ -1734,6 +1785,8 @@
                 "type": "prompt",
                 "label": "Coin",
                 "name": "coin",
+                "scoreLabel": "OBJAB",
+                "qID": 56,
                 "scores": [
                   {
                     "value": 1
@@ -1743,14 +1796,16 @@
                   }
                 ],
                 "value": {
+                    "qID": 56,
                     "selectedOption": null
                 }
               },
               {
                 "type": "prompt",
-                "label": "Toothbursh",
+                "label": "Toothbrush",
                 "name": "toothbrush",
-                "scoreLabel": "OBJB",
+                "scoreLabel": "OBJBA",
+                "qID": 57,
                 "scores": [
                   {
                     "value": 1
@@ -1760,6 +1815,7 @@
                   }
                 ],
                 "value": {
+                    "qID": 57,
                     "selectedOption": null
                 }
               },
@@ -1767,6 +1823,8 @@
                 "type": "prompt",
                 "label": "Key",
                 "name": "key",
+                "scoreLabel": "OBJBB",
+                "qID": 58,
                 "scores": [
                   {
                     "value": 1
@@ -1776,6 +1834,7 @@
                   }
                 ],
                 "value": {
+                    "qID": 58,
                     "selectedOption": null
                 }
               },
@@ -1783,6 +1842,8 @@
                 "type": "prompt",
                 "label": "Comb",
                 "name": "comb",
+                "scoreLabel": "OBJBC",
+                "qID": 59,
                 "scores": [
                   {
                     "value": 1
@@ -1792,13 +1853,11 @@
                   }
                 ],
                 "value": {
+                    "qID": 59,
                     "selectedOption": null
                 }
               }
-            ],
-            "scoreAlgorithm": {
-              "type": "individual"
-            }        
+            ]       
           }
         ]
       },
@@ -1817,7 +1876,8 @@
               {
                 "type": "prompt",
                 "label": "Spoon",
-                "scoreLabel": "RCOBJ",
+                "scoreLabel": "RCOBJA",
+                "qID": 60,
                 "name": "spoon",
                 "scores": [
                   {
@@ -1828,6 +1888,7 @@
                   }
                 ],
                 "value": {
+                    "qID": 60,
                     "selectedOption": null
                 }
               },
@@ -1835,6 +1896,8 @@
                 "type": "prompt",
                 "label": "Coin",
                 "name": "coin",
+                "scoreLabel": "RCOBJB",
+                "qID": 61,
                 "scores": [
                   {
                     "value": 1
@@ -1844,13 +1907,16 @@
                   }
                 ],
                 "value": {
+                    "qID": 61,
                     "selectedOption": null
                 }
               },
               {
                 "type": "prompt",
-                "label": "Toothbursh",
+                "label": "Toothbrush",
                 "name": "toothbrush",
+                "scoreLabel": "RCOBJC",
+                "qID": 62,
                 "scores": [
                   {
                     "value": 1
@@ -1860,6 +1926,7 @@
                   }
                 ],
                 "value": {
+                    "qID": 62,
                     "selectedOption": null
                 }
               },
@@ -1867,6 +1934,8 @@
                 "type": "prompt",
                 "label": "Key",
                 "name": "key",
+                "scoreLabel": "RCOBJD",
+                "qID": 63,
                 "scores": [
                   {
                     "value": 1
@@ -1876,6 +1945,7 @@
                   }
                 ],
                 "value": {
+                    "qID": 63,
                     "selectedOption": null
                 }
               }
@@ -1884,6 +1954,8 @@
                 "type": "prompt",
                 "label": "Comb",
                 "name": "comb",
+                "scoreLabel": "RCOBJE",
+                "qID": 64,
                 "scores": [
                   {
                     "value": 1
@@ -1893,13 +1965,11 @@
                   }
                 ],
                 "value": {
+                    "qID": 64,
                     "selectedOption": null
                 }
               }
-            ],
-            "scoreAlgorithm": {
-              "type": "individual"
-            }        
+            ]       
           }
         ]
       }

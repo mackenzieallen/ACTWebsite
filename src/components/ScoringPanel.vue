@@ -5,7 +5,7 @@
       <h1>ACT Scoring Sheet</h1>
 
       <ScoreSection taskName="CASI">
-        <div>CASI Score Details Go Here</div>
+        <div>Total Score: {{ totalScore }}</div>
       </ScoreSection>
 
       <slot></slot>
@@ -25,6 +25,10 @@ export default {
       type: Boolean,
       default: false,
     },
+    totalScore: { 
+      type: Number,
+      default: 0
+    }
   },
   methods: {
     closePage() {
@@ -40,7 +44,7 @@ export default {
   top: 0;
   right: 0;
   height: 100%;
-  width: 85%;
+  width: 25%;
   background-color: white;
   box-shadow: -2px 0 5px rgba(0, 0, 0, 0.5);
   transform: translateX(100%);

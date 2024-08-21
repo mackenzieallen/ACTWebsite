@@ -1,6 +1,6 @@
 <template>
   <div class="casi">
-    <BaseLayout :heading="'CASI'" />
+    <BaseLayout :heading="'CASI'" :totalScore="totalScore"  />
     <form @submit.prevent="submitForm">
       <CASIQuestions v-if="jsonData" :jsonData="jsonData" />
       <button type="submit" class="submit-button">Submit</button>
@@ -21,11 +21,13 @@ export default {
   data() {
     return {
       controller: new CASIController(),
-      jsonData: null
+      jsonData: null,
+      totalScore: null
     }
   },
   async mounted() {
     this.loadData();
+    this.totalScore = this.controller.totalScore; 
   },
   methods: {
     async loadData() {
@@ -35,6 +37,7 @@ export default {
     },
     async submitForm() {
       this.controller.submitForm();
+      this.totalScore = this.controller.totalScore;
     }
   },
 };
@@ -42,7 +45,7 @@ export default {
 
 <style>
 .casi {
-  max-width: 1000px;
+  max-width: 1200px;
   margin: auto;
 }
 
@@ -54,7 +57,7 @@ h1 {
 
 h2 {
   color: #555;
-  border-bottom: 2px solid #eee;
+  border-bottom: 2px solid darkgray;
   padding-bottom: 5px;
   margin-bottom: 20px;
 }
@@ -67,26 +70,6 @@ p {
   padding-bottom: 10px;
 }
 
-.question {
-  margin-bottom: 20px;
-}
-
-.input-group {
-  margin: 15px 0;
-}
-
-.input-label {
-  display: block;
-  font-weight: bold;
-  margin-bottom: 8px;
-}
-
-.input-field input {
-  padding: 10px;
-  margin-top: 5px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-}
 
 .submit-button {
   background-color: #317391;

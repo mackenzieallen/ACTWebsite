@@ -2,13 +2,12 @@
     <div class="input-field">
         <input
         type="text"
+        placeholder="Type Here"
         :id="input.name"
         v-model="textInput"
         @input="handleTextInput"
         />
     </div>
-<pre>{{ input }}</pre>
-
 </template>
 
 <script>
@@ -58,5 +57,17 @@ export default defineComponent({
     padding: 8px;
     border: 1px solid #ccc;
     border-radius: 4px;
+    width: 90%;
+    max-width: 400px;
+    margin-top: 2px;
+}
+.input-field {
+    width: 90%;
+    max-width: 400px;
+    margin-top: 2px;
+}
+input::placeholder {
+  opacity: .5;
+  font-size: 12px;
 }
 </style>

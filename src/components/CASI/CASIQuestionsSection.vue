@@ -1,19 +1,13 @@
 <template>
     <div>
-        <div v-if="sectionType === 'pre'">
-            <div class="subheading">Prequestions</div>
-        </div>
-
-        <div v-if="sectionType === 'post'">
-            <div class="subheading">Postquestions</div>
-        </div>
-
         <div v-for="(question, index) in questions" :key="index" class="section">
             <CASIQuestion
                 :question="question"
                 :section="sectionType === 'post'"
+                @score-added="updateScores"
             />
         </div>
+        <h2></h2>
     </div>
 </template>
 
@@ -25,13 +19,11 @@ export default {
     props: {
         questions: Array,
         sectionType: String
+    },
+    methods: {
+        updateScores(scoreLabel, value) {
+            this.$emit('score-added', scoreLabel, value);
+        }
     }
 };
 </script>
-  
-<style scoped>
-.subheading {
-    font-size: 28px;
-    margin-bottom: 14px;
-}
-</style>

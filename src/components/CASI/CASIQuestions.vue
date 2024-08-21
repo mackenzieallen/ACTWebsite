@@ -3,7 +3,6 @@
     <CASIPreQuestions :preQuestions="jsonData.prequestions" />
     <div class="heading">Questions</div>
     <div v-for="(section, sectionIndex) in jsonData.sections" :key="'section' + sectionIndex" class="section">
-      <h2>{{ section.title }}</h2>
       <div v-if="section.instructions" class="instructions">
         <span v-for="(instruction, index) in section.instructions" :key="'instruction' + sectionIndex + '-' + index">
           {{ instruction }}
@@ -35,8 +34,8 @@ export default {
 
 <style scoped>
 .heading {
-  color: #555;
-  font-size: 1.5em;
-  font-weight: bold;
+  font-size: 28px;
+    margin-bottom: 24px;
+    color: #237091;
 }
 </style>

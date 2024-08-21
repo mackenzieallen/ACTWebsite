@@ -7,6 +7,7 @@
         >
         <input
             type="radio"
+            class="radioButtons"
             :id="`${input.name}-choice-${choiceIndex}`"
             :name="input.name"
             :value="choice.value || choice"
@@ -41,7 +42,12 @@ setup(props) {
     function emitRadioChange(value) {
         console.log(`Radio Change - Name: ${input.value.name}, Value: ${value}`);
         input.value.value.selectedOption = value;
-        console.log("Updated JSON:", input.value);
+        //console.log("Updated JSON:", input.value);
+
+        this.$emit('score-added', input.value.scoreLabel, value);
+
+        console.log(`ScoreLabel: ${input.value.scoreLabel}, Selected Score: ${value}`);
+
     }
 
     return {

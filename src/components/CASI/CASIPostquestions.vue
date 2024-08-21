@@ -1,5 +1,6 @@
 <template>
   <div v-if="postQuestions" class="post-questions">
+    <div class="subheading">Post-CASI Questions</div>
     <div v-if="postQuestions.instructions" class="instructions">
       <p v-for="(instruction, index) in postQuestions.instructions" :key="'postinstruction' + index">
         {{ instruction }}
@@ -19,3 +20,11 @@ export default {
   }
 };
 </script>
+
+<style scoped>
+.subheading {
+    font-size: 28px;
+    margin-bottom: 24px;
+    color: #237091;
+}
+</style>

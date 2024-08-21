@@ -2,21 +2,29 @@
   <div class="input-group">
     <label :for="input.name" class="input-label">{{ input.label }}</label>
 
-    <CASITextInput
-      v-if="input.type === 'text'"
-      :input="input"
-      :modelValue="modelValue"
-    />
-    <CASIChoiceInput
-      v-if="input.type === 'choice' || input.type === 'prompt'"
-      :input="input"
-      :modelValue="modelValue"
-    />
-    <CASIScoreInput
-      v-if="input.scores"
-      :input="input"
-      :modelValue="modelValue"
-    />
+    <div class="label-container">
+      <div v-for="(label, index) in input.labelArray" :key="index">
+        {{ index + 1 }}. {{ label }}
+      </div>
+    </div>
+
+    <div class="inputs">
+      <CASITextInput
+        v-if="input.type === 'text'"
+        :input="input"
+        :modelValue="modelValue"
+      />
+      <CASIChoiceInput
+        v-if="input.type === 'prompt'"
+        :input="input"
+        :modelValue="modelValue"
+      />
+      <CASIScoreInput
+        v-if="input.scores"
+        :input="input"
+        :modelValue="modelValue"
+      />
+    </div>
   </div>
 </template>
 
@@ -53,6 +61,16 @@ export default defineComponent({
 <style scoped>
 .input-label {
   display: block;
-  margin-bottom: 8px;
+  font-size: 14px;
+  margin-bottom: 3px;
+}
+.inputs {
+  display: flex;
+}
+.label-container {
+  font-size: 14px;
+}
+.input-group {
+  margin-bottom: 20px;
 }
 </style>
