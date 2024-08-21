@@ -522,7 +522,6 @@
             "inputs": [
               {
                 "type": "prompts",
-                "labels": [ "(3 sec)", "(2 sec)" ],
                 "name": "recall2a",
                 "scoreLabel": "RC1A",
                 "qID": 14,
@@ -532,12 +531,12 @@
                     "value": 3
                   },
                   {
-                    "label": "After: \"One word was something to wear.\"",
+                    "label": "After 3 seconds: \"One word was something to wear.\"",
                     "value": 2
                   }
                   ,
                   {
-                    "label": "After: \"Was it SHOES, SHIRT, or SOCKS?\"",
+                    "label": "After 2 seconds: \"Was it SHOES, SHIRT, or SOCKS?\"",
                     "value": 1
                   },
                   {
@@ -556,7 +555,6 @@
             "inputs": [
               {
                 "type": "prompts",
-                "labels": [ "(3 sec)", "(2 sec)" ],
                 "name": "recall2b",
                 "scoreLabel": "RC1B",
                 "qID": 15,
@@ -566,12 +564,12 @@
                     "value": 3
                   },
                   {
-                    "label": "After: \"One word was a color.\"",
+                    "label": "After 3 seconds: \"One word was a color.\"",
                     "value": 2
                   }
                   ,
                   {
-                    "label": "After: \"Was it BLUE, BLACK or BROWN?\"",
+                    "label": "After 2 seconds: \"Was it BLUE, BLACK or BROWN?\"",
                     "value": 1
                   },
                   {
@@ -590,7 +588,6 @@
             "inputs": [
               {
                 "type": "prompts",
-                "labels": [ "(3 sec)", "(2 sec)" ],
                 "name": "recall2c",
                 "scoreLabel": "RC1C",
                 "qID": 16,
@@ -600,12 +597,12 @@
                     "value": 3
                   },
                   {
-                    "label": "After: \"One word was a good personal quality.\"",
+                    "label": "After 3 seconds: \"One word was a good personal quality.\"",
                     "value": 2
                   }
                   ,
                   {
-                    "label": "After: \"Was it HONESTY, MODESTY, or CHARITY?\"",
+                    "label": "After 2 seconds: \"Was it HONESTY, MODESTY, or CHARITY?\"",
                     "value": 1
                   },
                   {
@@ -1548,7 +1545,6 @@
             "inputs": [
               {
                 "type": "prompts",
-                "labels": [ "(3 sec)", "(2 sec)" ],
                 "name": "recall3a",
                 "scoreLabel": "RC2A",
                 "qID": 47,
@@ -1558,12 +1554,12 @@
                     "value": 3
                   },
                   {
-                    "label": "After: \"One word was something to wear.\"",
+                    "label": "After 3 seconds: \"One word was something to wear.\"",
                     "value": 2
                   }
                   ,
                   {
-                    "label": "After: \"Was it SHOES, SHIRT, or SOCKS?\"",
+                    "label": "After 2 seconds: \"Was it SHOES, SHIRT, or SOCKS?\"",
                     "value": 1
                   },
                   {
@@ -1582,7 +1578,6 @@
             "inputs": [
               {
                 "type": "prompts",
-                "labels": [ "(3 sec)", "(2 sec)" ],
                 "name": "recall3b",
                 "scoreLabel": "RC2B",
                 "qID": 48,
@@ -1592,12 +1587,12 @@
                     "value": 3
                   },
                   {
-                    "label": "After: \"One word was a color.\"",
+                    "label": "After 3 seconds: \"One word was a color.\"",
                     "value": 2
                   }
                   ,
                   {
-                    "label": "After: \"Was it BLUE, BLACK or BROWN?\"",
+                    "label": "After 2 seconds: \"Was it BLUE, BLACK or BROWN?\"",
                     "value": 1
                   },
                   {
@@ -1616,7 +1611,6 @@
             "inputs": [
               {
                 "type": "prompts",
-                "labels": [ "(3 sec)", "(2 sec)" ],
                 "name": "recall3c",
                 "scoreLabel": "RC2C",
                 "qID": 49,
@@ -1626,12 +1620,12 @@
                     "value": 3
                   },
                   {
-                    "label": "After: \"One word was a good personal quality.\"",
+                    "label": "After 3 seconds: \"One word was a good personal quality.\"",
                     "value": 2
                   }
                   ,
                   {
-                    "label": "After: \"Was it HONESTY, MODESTY, or CHARITY?\"",
+                    "label": "After 2 seconds: \"Was it HONESTY, MODESTY, or CHARITY?\"",
                     "value": 1
                   },
                   {

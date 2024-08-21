@@ -7,7 +7,7 @@
                 @score-added="handleScoreAdded"
             />
         </div>
-        <h2></h2>
+        <div class="grey-line"></div>
     </div>
 </template>
 
@@ -27,3 +27,10 @@ export default {
     }
 };
 </script>
+
+<style scoped>
+.grey-line {
+  border-bottom: 2px solid darkgray;
+  margin-bottom: 25px;
+}
+</style>

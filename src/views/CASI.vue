@@ -92,13 +92,6 @@ h1 {
   margin-bottom: 30px;
 }
 
-h2 {
-  color: #555;
-  border-bottom: 2px solid darkgray;
-  padding-bottom: 5px;
-  margin-bottom: 20px;
-}
-
 p {
   font-size: 14px;
 }
