@@ -49,9 +49,10 @@ export default {
 
 .scores {
     flex: 1;
+    flex-direction: column;
     display: flex;
-    align-items: center;
-    justify-content: center;
+    margin: 20px;
+    font-size: 14px;
 }
 </style>
   

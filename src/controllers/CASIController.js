@@ -5,6 +5,15 @@ class CASIController {
     constructor() {
         this.model = this.newModel();
         this.totalScore = 0;
+        this.casiATT = 0;
+        this.casiMMC = 0;
+        this.casiORI = 0;
+        this.casiLTM = 0;
+        this.casiSTM = 0;
+        this.casiLANG = 0;
+        this.casiDRAW = 0;
+        this.casiFLU = 0;
+        this.casiATAJ = 0;
     }
     
     newModel() { 
@@ -75,20 +84,21 @@ class CASIController {
         const RCOBJ = scores.RCOBJA + scores.RCOBJB + scores.RCOBJC + scores.RCOBJD + scores.RCOBJE;
         const BESTRGS = Math.max(scores.RGS1, scores.RGS2);
 
-        const casi_att = BESTRGS + scores.RPTA + RPTB;
-        const casi_mmc = scores.DBA + scores.DBB + scores.DBC + scores.SUB3A + scores.SUB3B + scores.SUB3C;
-        const casi_ori = scores.AGE + scores.YR + scores.MO + scores.DATE + scores.DAY + scores.SSN + SPA + scores.SPB;
-        const casi_ltm = BPL + scores.BYR + scores.BMO + scores.BDAY + scores.MNT + scores.SUN;
-        const casi_stm = Math.floor(0.5 * (scores.RC1A + scores.RC1B + scores.RC1C + scores.RC2A + scores.RC2B + scores.RC2C) + 0.6 * RCOBJ + 0.5);
-        const casi_lang = Math.floor(0.5 * (scores.READ + scores.WRITE) + 0.3 * (BODY + OBJA + OBJB) + 0.5) + CMD;
-        const casi_draw = DRAW;
-        const casi_flu = scores.ANML;
-        const casi_ataj = SIM + JGMT;
+        this.casiATT = BESTRGS + scores.RPTA + RPTB;
+        this.casiMMC = scores.DBA + scores.DBB + scores.DBC + scores.SUB3A + scores.SUB3B + scores.SUB3C;
+        this.casiORI = scores.AGE + scores.YR + scores.MO + scores.DATE + scores.DAY + scores.SSN + SPA + scores.SPB;
+        this.casiLTM = BPL + scores.BYR + scores.BMO + scores.BDAY + scores.MNT + scores.SUN;
+        this.casiSTM = Math.floor(0.5 * (scores.RC1A + scores.RC1B + scores.RC1C + scores.RC2A + scores.RC2B + scores.RC2C) + 0.6 * RCOBJ + 0.5);
+        this.casiLANG = Math.floor(0.5 * (scores.READ + scores.WRITE) + 0.3 * (BODY + OBJA + OBJB) + 0.5) + CMD;
+        this.casiDRAW = DRAW;
+        this.casiFLU = scores.ANML;
+        this.casiATAJ = SIM + JGMT;
 
-        this.totalScore = casi_att + casi_mmc + casi_ori + casi_ltm + casi_stm + casi_lang + casi_draw + casi_flu + casi_ataj;
+        this.totalScore = this.casiATT + this.casiMMC + this.casiORI + this.casiLTM + this.casiSTM + this.casiLANG + this.casiDRAW + this.casiFLU + this.casiATAJ;
 
         console.log("Scores:", scores);
         console.log("Total: ", this.totalScore);
+        console.log("CASI ATT Total: ", this.casiATT);
     }
 }
 

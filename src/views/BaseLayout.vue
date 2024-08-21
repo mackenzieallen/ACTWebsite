@@ -14,7 +14,19 @@
         <h1 class="heading">{{ heading }}</h1>
     </div>
 
-    <ScoringPanel :isOpen="isScoringPanelOpen" :totalScore="totalScore" @close="closeScoringPanel" />
+    <ScoringPanel :isOpen="isScoringPanelOpen" 
+        :totalScore="totalScore" 
+        :casiATT="casiATT"
+        :casiMMC="casiMMC"
+        :casiORI="casiORI"
+        :casiLTM="casiLTM"
+        :casiSTM="casiSTM"
+        :casiLANG="casiLANG"
+        :casiDRAW="casiDRAW"
+        :casiFLU="casiFLU"
+        :casiATAJ="casiATAJ"
+        @close="closeScoringPanel" 
+    />
 </template>
 
 <script>
@@ -32,10 +44,10 @@ export default {
             type: String,
             required: true
         },
-        totalScore: { 
-            type: Number,
-            default: 0
-        }
+        ...['totalScore', 'casiATT', 'casiMMC', 'casiORI', 'casiLTM', 'casiSTM', 'casiLANG', 'casiDRAW', 'casiFLU', 'casiATAJ'].reduce((acc, key) => {
+            acc[key] = { type: Number, default: 0 };
+            return acc;
+        }, {})
     },
     data() {
         return {

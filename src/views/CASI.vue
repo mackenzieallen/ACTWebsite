@@ -1,6 +1,18 @@
 <template>
   <div class="casi">
-    <BaseLayout :heading="'CASI'" :totalScore="totalScore"  />
+    <BaseLayout 
+      :heading="'CASI'" 
+      :totalScore="totalScore" 
+      :casiATT="casiATT"
+      :casiMMC="casiMMC"
+      :casiORI="casiORI"
+      :casiLTM="casiLTM"
+      :casiSTM="casiSTM"
+      :casiLANG="casiLANG"
+      :casiDRAW="casiDRAW"
+      :casiFLU="casiFLU"
+      :casiATAJ="casiATAJ"
+    />
     <form @submit.prevent="submitForm">
       <CASIQuestions v-if="jsonData" :jsonData="jsonData" @score-added="handleScoreAdded" />
       <button type="submit" class="submit-button">Submit</button>
@@ -22,12 +34,21 @@ export default {
     return {
       controller: new CASIController(),
       jsonData: null,
-      totalScore: null
+      totalScore: null,
+      casiATT: null,
+      casiMMC: null,
+      casiORI: null,
+      casiLTM: null,
+      casiSTM: null,
+      casiLANG: null,
+      casiDRAW: null,
+      casiFLU: null,
+      casiATAJ: null
     }
   },
   async mounted() {
     this.loadData();
-    this.totalScore = this.controller.totalScore; 
+    this.updateScores();
   },
   methods: {
     async loadData() {
@@ -37,11 +58,23 @@ export default {
     },
     async submitForm() {
       this.controller.submitForm();
-      this.totalScore = this.controller.totalScore;
+      this.updateScores();
     },
     handleScoreAdded(scoreLabel, value) {
       this.controller.calculateScores();
+      this.updateScores();
+    },
+    updateScores() {
       this.totalScore = this.controller.totalScore;
+      this.casiATT = this.controller.casiATT;
+      this.casiMMC = this.controller.casiMMC;
+      this.casiORI = this.controller.casiORI;
+      this.casiLTM = this.controller.casiLTM;
+      this.casiSTM = this.controller.casiSTM;
+      this.casiLANG = this.controller.casiLANG;
+      this.casiDRAW = this.controller.casiDRAW;
+      this.casiFLU = this.controller.casiFLU;
+      this.casiATAJ = this.controller.casiATAJ;
     }
   },
 };
@@ -96,12 +129,6 @@ p {
 .introduction {
   margin-bottom: 20px;
   color: #555;
-}
-
-
-.scores {
-  margin-top: 10px;
-  color: #777;
 }
 
 .notes {

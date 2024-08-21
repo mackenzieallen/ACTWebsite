@@ -5,7 +5,16 @@
       <h1>ACT Scoring Sheet</h1>
 
       <ScoreSection taskName="CASI">
-        <div>Total Score: {{ totalScore }}</div>
+        <div>Attention Score: {{ casiATT }}</div>
+        <div>Mental Manipulation/Concentration Score: {{ casiMMC }}</div>
+        <div>Orientation Score: {{ casiORI }}</div>
+        <div>Long-term Memory Score: {{ casiLTM }}</div>
+        <div>Short-term Memory Score: {{ casiSTM }}</div>
+        <div>Language Score: {{ casiLANG }}</div>
+        <div>Visual Construction Score: {{ casiDRAW }}</div>
+        <div>List-generating Fluency Score: {{ casiFLU }}</div>
+        <div>Abstraction and Judgment Score: {{ casiATAJ }}</div>
+        <div class="total">Total Score: {{ totalScore }}</div>
       </ScoreSection>
 
       <slot></slot>
@@ -25,10 +34,10 @@ export default {
       type: Boolean,
       default: false,
     },
-    totalScore: { 
-      type: Number,
-      default: 0
-    }
+    ...['totalScore', 'casiATT', 'casiMMC', 'casiORI', 'casiLTM', 'casiSTM', 'casiLANG', 'casiDRAW', 'casiFLU', 'casiATAJ'].reduce((acc, key) => {
+      acc[key] = { type: Number, default: 0 };
+      return acc;
+    }, {})
   },
   methods: {
     closePage() {
@@ -44,7 +53,7 @@ export default {
   top: 0;
   right: 0;
   height: 100%;
-  width: 25%;
+  width: 95%;
   background-color: white;
   box-shadow: -2px 0 5px rgba(0, 0, 0, 0.5);
   transform: translateX(100%);
@@ -68,5 +77,9 @@ export default {
 
 .content {
   padding: 20px;
+}
+
+.total {
+  font-weight: bold;
 }
 </style>
