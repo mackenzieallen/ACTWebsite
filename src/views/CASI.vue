@@ -15,7 +15,7 @@
     />
     <form @submit.prevent="submitForm">
       <CASIQuestions v-if="jsonData" :jsonData="jsonData" @score-added="handleScoreAdded" />
-      <button type="submit" class="submit-button">Submit</button>
+      <TextButton class="submit-button" buttonText="Submit" :dark="true"></TextButton>
     </form>
   </div>
 </template>
@@ -24,11 +24,13 @@
 import CASIQuestions from '../components/CASI/CASIQuestions.vue';
 import BaseLayout from '../views/BaseLayout.vue';
 import CASIController from '../controllers/CASIController';
+import TextButton from '../components/TextButton.vue';
 
 export default {
   components: { 
     CASIQuestions,
-    BaseLayout 
+    BaseLayout,
+    TextButton
   },
   data() {
     return {
@@ -100,16 +102,7 @@ p {
   padding-bottom: 10px;
 }
 
-
 .submit-button {
-  background-color: #317391;
-  color: white;
-  border: none;
-  padding: 12px 24px;
-  border-radius: 5px;
-  cursor: pointer;
-  font-size: 16px;
-  display: block;
   margin: 30px auto 0;
 }
 
