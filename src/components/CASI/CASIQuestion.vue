@@ -30,6 +30,7 @@
       :key="inputIndex"
       :input="input"
       :modelValue="''"
+      @score-added="handleScoreAdded"
     />
 
     <p v-if="question.examples" class="examples">
@@ -53,6 +54,11 @@ export default {
   components: { CASIInput },
   props: {
     question: Object
+  },
+  methods: {
+    handleScoreAdded(scoreLabel, value) {
+      this.$emit('score-added', scoreLabel, value);
+    }
   }
 };
 </script>

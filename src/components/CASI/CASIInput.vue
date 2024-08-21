@@ -23,14 +23,13 @@
         v-if="input.scores"
         :input="input"
         :modelValue="modelValue"
+        @score-added="handleScoreAdded"
       />
     </div>
   </div>
 </template>
 
 <script>
-/* eslint-disable vue/no-dupe-keys */
-
 import { defineComponent, toRefs } from 'vue';
 import CASITextInput from './CASITextInput.vue';
 import CASIChoiceInput from './CASIChoiceInput.vue';
@@ -48,11 +47,15 @@ export default defineComponent({
       default: ''
     }
   },
-  setup(props) {
+  setup(props, { emit }) {
     const { input } = toRefs(props);
 
+    function handleScoreAdded(scoreLabel, value) {
+      emit('score-added', scoreLabel, value);
+    }
+
     return {
-      input
+      handleScoreAdded
     };
   }
 });

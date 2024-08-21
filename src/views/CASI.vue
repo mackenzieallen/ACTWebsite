@@ -2,7 +2,7 @@
   <div class="casi">
     <BaseLayout :heading="'CASI'" :totalScore="totalScore"  />
     <form @submit.prevent="submitForm">
-      <CASIQuestions v-if="jsonData" :jsonData="jsonData" />
+      <CASIQuestions v-if="jsonData" :jsonData="jsonData" @score-added="handleScoreAdded" />
       <button type="submit" class="submit-button">Submit</button>
     </form>
   </div>
@@ -37,6 +37,10 @@ export default {
     },
     async submitForm() {
       this.controller.submitForm();
+      this.totalScore = this.controller.totalScore;
+    },
+    handleScoreAdded(scoreLabel, value) {
+      this.controller.calculateScores();
       this.totalScore = this.controller.totalScore;
     }
   },

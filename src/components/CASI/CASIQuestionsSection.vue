@@ -4,7 +4,7 @@
             <CASIQuestion
                 :question="question"
                 :section="sectionType === 'post'"
-                @score-added="updateScores"
+                @score-added="handleScoreAdded"
             />
         </div>
         <h2></h2>
@@ -21,7 +21,7 @@ export default {
         sectionType: String
     },
     methods: {
-        updateScores(scoreLabel, value) {
+        handleScoreAdded(scoreLabel, value) {
             this.$emit('score-added', scoreLabel, value);
         }
     }

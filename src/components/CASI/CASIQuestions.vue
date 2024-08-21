@@ -8,7 +8,7 @@
           {{ instruction }}
         </span>
       </div>
-      <CASIQuestionsSection :questions="section.questions" />
+      <CASIQuestionsSection :questions="section.questions" @score-added="handleScoreAdded" />
     </div>
     <CASIPostQuestions :postQuestions="jsonData.postquestions" />
   </div>
@@ -29,6 +29,11 @@ export default {
   components: { 
     CASIPreQuestions, CASIPostQuestions, CASIQuestionsSection 
   },
+  methods: {
+    handleScoreAdded(scoreLabel, value) {
+      this.$emit('score-added', scoreLabel, value);
+    }
+  }
 };
 </script>
 
