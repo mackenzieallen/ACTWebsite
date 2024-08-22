@@ -17,15 +17,18 @@
     </p>
   </div>
 
+  <ConstructionalPraxisContent />
 </template>
 
 <script>
 import BaseLayout from '../BaseLayout.vue';
+import ConstructionalPraxisContent from '../../components/Pages/ConstructionalPraxisContent.vue';
 
 export default {
-components: {
-  BaseLayout
-}
+  components: {
+    BaseLayout,
+    ConstructionalPraxisContent
+  }
 }
 </script>
 

@@ -8,17 +8,17 @@
         <p>The first time an examinee generates three consecutive words that do not start with the designated letter <b class="emph">“F”, say, the letter we are using now is “F”.</b></p>
     </div>
 
-    <VerbalFluency />
+    <VerbalFluencyInterview />
 </template>
 
 <script>
 import BaseLayout from '../BaseLayout.vue';
-import VerbalFluency from '@/components/Pages/VerbalFluency.vue';
+import VerbalFluencyInterview from '@/components/Pages/VerbalFluencyInterview.vue';
 
 export default {
   components: {
     BaseLayout,
-    VerbalFluency
+    VerbalFluencyInterview
   }
 }
 </script>

@@ -1,0 +1,244 @@
+{
+    "items": [
+      {
+        "direct": "Anna",
+        "rules": "'Anna' or variant of name",
+        "accepted": [
+          "Ann", "Annie", "Annette"
+        ],
+        "unaccepted": [
+          "Angela", "Alison"
+        ]
+      },
+      {
+        "direct": "Thompson",
+        "rules": "'Thompson' is required",
+        "accepted": [],
+        "unaccepted": [
+          "Tompkins", "Thomas"
+        ]
+      },
+      {
+        "direct": "of South",
+        "rules": "'South' in any context",
+        "accepted": [
+          "from South", "who lived in South", "who came from the South"
+        ],
+        "unaccepted": []
+      },
+      {
+        "direct": "of South",
+        "rules": "'Boston' in any context",
+        "accepted": [
+          "who worked in Boston", "on a a trip to Boston"
+        ],
+        "unaccepted": []
+      },
+      {
+        "direct": "employed",
+        "rules": "an indication she had a job",
+        "accepted": [
+          "worked", "had a job as", "who earned a living as"
+        ],
+        "unaccepted": [
+          "who wanted to be employed as a cook"
+        ]
+      },
+      {
+        "direct": "as a cook",
+        "rules": "'cook' or some form of the word is required",
+        "accepted": [
+          "who cooked"
+        ],
+        "unaccepted": [
+          "as a waitress", "in the kitchen"
+        ]
+      },
+      {
+        "direct": "in a school",
+        "rules": "'school' is required",
+        "accepted": [
+          "at a high school", "by a school"
+        ],
+        "unaccepted": [
+          "in a hospital", "in a company"
+        ]
+      },
+      {
+        "direct": "cafeteria",
+        "rules": "'cafeteria' is required",
+        "accepted": [],
+        "unaccepted": [
+          "lunchroom","dining hall", "restaurant", "kitchen"
+        ]
+      },
+      {
+        "direct": "reported",
+        "rules": "indication that a formal statement was made to someone in authority (in any context)",
+        "accepted": [
+          "filed a complaint", "said to the police", "made a statement", "notified the police", "called the police", "told the police"
+        ],
+        "unaccepted": [
+          "said","told how"
+        ]
+      },
+      {
+        "direct": "at the City Hall",
+        "rules": "'City Hall' (in any context)",
+        "accepted": [
+          "went to City Hall", "called City Hall"
+        ],
+        "unaccepted": []
+      },
+      {
+        "direct": "Station",
+        "rules": "'station' (in any context), or a word or phrase indicating a police station",
+        "accepted": [
+          "police station", "train station", "stationhouse", "police headquarters", "precinct house", "police department"
+        ],
+        "unaccepted": [
+          "office", "building"
+        ]
+      },
+      {
+        "direct": "that she had been held up",
+        "rules": "an indication that she had been held up (i.e. gunpoint or knifepoint)",
+        "accepted": [
+          "that someone held her up", "that she was in a stick-up"
+        ],
+        "unaccepted": [
+          "that she was beaten", "she was attacked", "that she got robbed", "that she got mugged"
+        ]
+      },
+      {
+        "direct": "on State Street",
+        "rules": "'State Street' (in any context)",
+        "accepted": [
+          "She lived on State Street", "on her way to State Street"
+        ],
+        "unaccepted": [
+          "on some street", "Street Avenue"
+        ]
+      },
+      {
+        "direct": "the night before",
+        "rules": "indication that the hold-up occurred the previous night",
+        "accepted": [
+          "last night", "the previous night"
+        ],
+        "unaccepted": [
+          "at night", "one night", "yesterday", "the day before"
+        ]
+      },
+      {
+        "direct": "and robbed",
+        "rules": "indication that a robbery took place",
+        "accepted": [
+          "was robbed", "her money was stolen", "they took her money", "someone took her purse"
+        ],
+        "unaccepted": [
+          "lost her money", "somebody took her things"
+        ]
+      },
+      {
+        "direct": "of fifty-six dollars.",
+        "rules": "indication that an amount greater than $49 but less than $60 was taken from her",
+        "accepted": [
+          "fifty-some dollars", "fifty-five dollars", "about fifty dollars"
+        ],
+        "unaccepted": [
+          "sixty-five dollars", "a lot of money", "the police collected fifty-six dollars from her"
+        ]
+      },
+      {
+        "direct": "She had four",
+        "rules": "'four' is required together with an indication the children are hers",
+        "accepted": [
+          "she was the mother of four children"
+        ],
+        "unaccepted": [
+          "had two", "she had some", "there were some"
+        ]
+      },
+      {
+        "direct": "small children",
+        "rules": "'children' or a synonym is required",
+        "accepted": [
+          "little children", "kids", "small kids", "young children"
+        ],
+        "unaccepted": [
+          "babies", "girls", "sons", "small boys"
+        ]
+      },
+      {
+        "direct": "the rent was due",
+        "rules": "a phrase indicating the rent was due",
+        "accepted": [
+          "she had not paid the rent", "she owed for the rent", "the landlord had to be paid", "she needed money for rent"
+        ],
+        "unaccepted": [
+          "she owed money", "she needed money", "there was no money"
+        ]
+      },
+      {
+        "direct": "and they had not eaten",
+        "rules": "indication that the children, or the family, were without food",
+        "accepted": [
+          "they had gone without food", "they were hungry", "there was no food", "her kids had nothing to eat", "she couldn't feed her family"
+        ],
+        "unaccepted": [
+          "there wasn't much food", "there was only a little food", "she had not eaten", "didn't have money to buy food"
+        ]
+      },
+      {
+        "direct": "for two days.",
+        "rules": "'two days' is required or a phrase meaning about two days",
+        "accepted": [
+          "for a couple days", "for one or two days", "for two or three days", "a few days"
+        ],
+        "unaccepted": [
+          "for days", "several days", "for a day", "for three days"
+        ]
+      },
+      {
+        "direct": "The police",
+        "rules": "word or phrase indicating one or more members of the police department (in any context)",
+        "accepted": [
+          "the cops", "the policemen", "the detectives", "the police officer", "they (where the police are clearly meant)"
+        ],
+        "unaccepted": [
+          "they (unspecified)", "some people", "her neighbors", "somebody"
+        ]
+      },
+      {
+        "direct": "touched by the woman's story",
+        "rules": "indication that her story invoked empathy",
+        "accepted": [
+          "were touched", "felt worry for the woman", "wanted to help her", "were sympathetic", "were impressed by her story (implying emotional reaction)"
+        ],
+        "unaccepted": [
+          "listened to her story", "helped her", "believed her"
+        ]
+      },
+      {
+        "direct": "took up a collection",
+        "rules": "a phrase indicating that money was collected",
+        "accepted": [
+          "chipped in", "collected money", "donated"
+        ],
+        "unaccepted": [
+          "gave her some money", "found some money"
+        ]
+      },
+      {
+        "direct": "for her",
+        "rules": "indication that the money collected was for her and her children",
+        "accepted": [
+          "and gave it to her", "for her children", "for her family", "for them", "to help her out"
+        ],
+        "unaccepted": [
+          "as a gift", "to make things better", "for food"
+        ]
+      }
+    ]
+  }

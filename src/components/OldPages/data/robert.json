@@ -1,0 +1,246 @@
+{
+    "items": [
+      {
+        "direct": "Robert",
+        "rules": "'Robert' or variant of name",
+        "accepted": [
+          "Bob", "Rob"
+        ],
+        "unaccepted": [
+          "Roger", "Richard", "Rupert"
+        ]
+      },
+      {
+        "direct": "Miller",
+        "rules": "'Miller' is required",
+        "accepted": [],
+        "unaccepted": [
+          "Mills", "Mullen"
+        ]
+      },
+      {
+        "direct": "was driving",
+        "rules": "an indication that the Miller was the driver of the truck",
+        "accepted": [
+          "drove", "was the driver of", "was at the wheel of"
+        ],
+        "unaccepted": [
+          "was riding in", "went in", "was going"
+        ]
+      },
+      {
+        "direct": "a ten-ton",
+        "rules": "'ten-ton' is required",
+        "accepted": [],
+        "unaccepted": [
+          "half-ton", "two-ton", "large"
+        ]
+      },
+      {
+        "direct": "truck",
+        "rules": "'truck' is required",
+        "accepted": [
+          "trailer truck", "pick-up truck", "semi", "tractor trailer"
+        ],
+        "unaccepted": [
+          "vehicle", "wagon", "car", "trailer", "van"
+        ]
+      },
+      {
+        "direct": "down a highway",
+        "rules": "indication that the truck was being driven on a road (not an unpaved road) or other intercity or instate artery",
+        "accepted": [
+          "down a road", "on a country road", "down a turnpike", "on a thruway", "on a freeway"
+        ],
+        "unaccepted": [
+          "down a dirt road", "down a street"
+        ]
+      },
+      {
+        "direct": "at night",
+        "rules": "an indication that it was after nightfall",
+        "accepted": [
+          "one night", "after dark", "one evening", "last night"
+        ],
+        "unaccepted": [
+          "one day", "one morning"
+        ]
+      },
+      {
+        "direct": "in the Mississippi",
+        "rules": "Mississippi in any context",
+        "accepted": [
+          "along the Mississippi River", "in Mississippi", "on his way to Mississippi"
+        ],
+        "unaccepted": [
+          "in the Missouri"
+        ]
+      },
+      {
+        "direct": "Delta",
+        "rules": "'Delta' is required",
+        "accepted": [
+          "Delta area"
+        ],
+        "unaccepted": [
+          "riverbank", "lowlands", "flats", "plains", "floodland"
+        ]
+      },
+      {
+        "direct": "carrying eggs",
+        "rules": "'eggs' is required along with an indication they were part of a shipment",
+        "accepted": [
+          "with a load of eggs", "transporting eggs", "freighting eggs", "with crates of eggs", "hauling eggs"
+        ],
+        "unaccepted": [
+          "carrying a load of some kind", "and he had some eggs"
+        ]
+      },
+      {
+        "direct": "to Nashville",
+        "rules": "'Nashville' in any context",
+        "accepted": [
+          "on his way from Nashville", "he lived in Nashville"
+        ],
+        "unaccepted": [
+          "to Tennessee"
+        ]
+      },
+      {
+        "direct": "when his axle",
+        "rules": "'axle' is required",
+        "accepted": [],
+        "unaccepted": [
+          "when his truck", "when the wheel", "and the tire", "the springs"
+        ]
+      },
+      {
+        "direct": "broke",
+        "rules": "a word or phrase meaning broke",
+        "accepted": [
+          "snapped", "broke down", "broke off", "went", "fell off", "failed", "threw an axle"
+        ],
+        "unaccepted": [
+          "slipped", "got stuck"
+        ]
+      },
+      {
+        "direct": "His truck skidded",
+        "rules": "expression indicating that the truck was out of control",
+        "accepted": [
+          "he skidded", "the truck slid", "his truck went", "it ran", "it spun out", "he went", "swerved", "skipped", "slipped", "jackknifed"
+        ],
+        "unaccepted": [
+          "he pulled his truck", "the truck stopped", "he drove his truck", "the truck tipped over", "he crashed", "he had an accident/wreck"
+        ]
+      },
+      {
+        "direct": "off the road",
+        "rules": "an expression meaning the truck left the road",
+        "accepted": [
+          "off the highway", "from the road", "off"
+        ],
+        "unaccepted": [
+          "across the road", "on the highway"
+        ]
+      },
+      {
+        "direct": "into a ditch.",
+        "rules": "'ditch' is required or a word or phrase meaning ditch",
+        "accepted": [
+          "down an embankment", "into a gully", "into a hole"
+        ],
+        "unaccepted": [
+          "into the mud", "into a field", "against a fence"
+        ]
+      },
+      {
+        "direct": "He was thrown",
+        "rules": "an indication that he was forcibly propelled",
+        "accepted": [
+          "he was slammed", "he (or some part of him) hit", "he bumped", "he knocked", "he was tossed"
+        ],
+        "unaccepted": [
+          "he fell", "he slumped", "he crashed"
+        ]
+      },
+      {
+        "direct": "against the dashboard",
+        "rules": "'dashboard' or 'dash' is required",
+        "accepted": [
+          "banged against the dash", "into the dashboard"
+        ],
+        "unaccepted": [
+          "into the windshield", "against the steering wheel", "out of the truck"
+        ]
+      },
+      {
+        "direct": "and was badly shaken.",
+        "rules": "a word or phrase indicating he was jarred or upset, but not indicating injury",
+        "accepted": [
+          "was shaken", "got shaken up", "was shook up", "got jarred", "was jolted", "was upset", "was trembling", "was in a state of shock", "was dazed"
+        ],
+        "unaccepted": [
+          "and hit his head", "cut himself", "got hurt", "was bleeding", "was knocked out", "bruised himself", "broke his arm", "had a concussion", "he wasn't hurt"
+        ]
+      },
+      {
+        "direct": "There was no traffic",
+        "rules": "a statement that there were no other vehicles were passing by",
+        "accepted": [
+          "the road was deserted", "no cars or trucks came by", "he didn't see any cars"
+        ],
+        "unaccepted": [
+          "nobody was around", "there were no lights", "no one stopped to help him"
+        ]
+      },
+      {
+        "direct": "and he doubted help would come.",
+        "rules": "a phrase indicating doubt that someone would assist him",
+        "accepted": [
+          "and he didn't think that help would arrive", "he didn't expect any help", "he figured help was unlikely", "he was sure no one would come"
+        ],
+        "unaccepted": [
+          "and there was no way to get help", "he couldn't get any help", "he was out of luck", "there was no garage around", "he thought he was stuck"
+        ]
+      },
+      {
+        "direct": "Just then his two-way radio",
+        "rules": "an indication that he has a (two-way) radio",
+        "accepted": [
+          "suddenly his C-B", "then his radio", "he had a two-way radio", "he radioed for help"
+        ],
+        "unaccepted": []
+      },
+      {
+        "direct": "buzzed",
+        "rules": "any word or phrase indicating that an audible signal of any type was received (sound or voice)",
+        "accepted": [
+          "he heard someone/something", "someone said", "received a call", "came on", "turned on","sounded", "squawked", "beeped", "signaled", "called" 
+        ],
+        "unaccepted": [
+          "lit up", "flashed"
+        ]
+      },
+      {
+        "direct": "He quickly answered,",
+        "rules": "an expression signifying he responded by voice",
+        "accepted": [
+          "he answered", "Grasshopper answered", "he said", "he grabbed the mic and said", "he replied", "he quickly announced"
+        ],
+        "unaccepted": [
+          "his radio said", "the C-B answered", "someone quickly replied", "he quickly pressed the button"
+        ]
+      },
+      {
+        "direct": "'This is Grasshopper.'",
+        "rules": "'Grasshopper' in any context",
+        "accepted": [
+          "I'm Grasshopper", "Calling Grasshopper", "Grasshopper here", "Is this Grasshopper?", "Grasshopper answered."
+        ],
+        "unaccepted": [
+          "This is Alligator", "I need help", "Mayday", "This is Hopper" 
+        ]
+      }
+    ]
+  }

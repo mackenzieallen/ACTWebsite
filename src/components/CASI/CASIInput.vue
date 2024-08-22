@@ -30,6 +30,8 @@
 </template>
 
 <script>
+/* eslint-disable vue/no-dupe-keys */
+
 import { defineComponent, toRefs } from 'vue';
 import CASITextInput from './CASITextInput.vue';
 import CASIChoiceInput from './CASIChoiceInput.vue';

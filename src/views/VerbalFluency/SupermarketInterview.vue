@@ -7,17 +7,17 @@
         </b></p>
     </div>
 
-    <VerbalFluency />
+    <VerbalFluencyInterview />
 </template>
 
 <script>
 import BaseLayout from '../BaseLayout.vue';
-import VerbalFluency from '@/components/Pages/VerbalFluency.vue';
+import VerbalFluencyInterview from '@/components/Pages/VerbalFluencyInterview.vue';
 
 export default {
   components: {
     BaseLayout,
-    VerbalFluency
+    VerbalFluencyInterview
   }
 }
 </script>

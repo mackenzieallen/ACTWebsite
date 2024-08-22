@@ -6,16 +6,28 @@
         <br>
         <div>Check each word as it is recalled:</div>
     </div>
+
+    <WordListMemoryContent :words="trialWords" />
 </template>
+
 
 <script>
 import BaseLayout from '../BaseLayout.vue';
+import WordListMemoryContent from '../../components/Pages/WordListMemoryContent.vue';
 
 export default {
   components: {
-    BaseLayout
+    BaseLayout,
+    WordListMemoryContent
+  },
+  data() {
+    return {
+      trialWords: [
+        "Butter", "Arm", "Shore", "Letter", "Queen", "Cabin", "Pole", "Ticket", "Grass", "Engine"
+      ]
+    };
   }
-}
+};
 </script>
 
 <style scoped>
