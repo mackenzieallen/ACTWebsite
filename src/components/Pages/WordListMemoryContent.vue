@@ -32,15 +32,17 @@
             <div class="column total-column">Total: {{ correctTotal }}</div>
         </div>
 
-        <div class="notes-section">
-            <label for="notes" class="notes-label">Notes:</label>
-            <textarea id="notes" class="notes-input"></textarea>
-        </div>
+        <NotesSection />
     </div>
 </template>
-  
+
 <script>
+import NotesSection from '../NotesSection.vue';
+
 export default {
+    components: {
+        NotesSection
+    },
     props: {
       words: {
         type: Array,
@@ -127,24 +129,5 @@ export default {
 .row:last-child {
     margin-bottom: 0;
 }
-
-.notes-section {
-    padding: 20px;
-}
-
-.notes-label {
-    font-weight: bold;
-    display: block;
-    margin-bottom: 10px;
-}
-
-.notes-input {
-    width: 100%;
-    height: 150px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    resize: vertical;
-    background-color: #f0f0f0;
-}
-  </style>
+</style>
   

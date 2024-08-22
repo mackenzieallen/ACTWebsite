@@ -12,18 +12,17 @@
     <div class="score">Score: 0</div>
   </div>
 
-  <div class="notes-section">
-    <label for="notes" class="notes-label">Notes:</label>
-    <textarea id="notes" class="notes-input"></textarea>
-  </div>
+  <NotesSection />
 </template>
 
 <script>
 import BaseLayout from './BaseLayout.vue';
+import NotesSection from '../components/NotesSection.vue';
 
 export default {
   components: {
-      BaseLayout
+      BaseLayout,
+      NotesSection
   },
   data() {
     return {
@@ -66,25 +65,6 @@ export default {
   display: flex;
   align-items: center;
   flex-direction: column;
-}
-
-.notes-section {
-    padding: 20px;
-}
-
-.notes-label {
-    font-weight: bold;
-    display: block;
-    margin-bottom: 10px;
-}
-
-.notes-input {
-    width: 100%;
-    height: 150px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    resize: vertical;
-    background-color: #f0f0f0;
 }
 </style>
 

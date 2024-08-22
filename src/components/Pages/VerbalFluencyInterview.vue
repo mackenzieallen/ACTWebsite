@@ -15,24 +15,24 @@ import TextInputWithToggle from '../TextInputWithToggle.vue';
 import NoteText from '../NoteText.vue';
 
 export default {
-components: {
-    TextInputWithToggle,
-    NoteText
-},
-data() {
-    return {
-        columns: [1, 2, 3],
-        items: Array.from({ length: 60 }, (v, k) => ({ id: k + 1 }))
-    };
-},
-methods: {
-    itemsInColumn(columnIndex) {
-        const itemsPerColumn = Math.ceil(this.items.length / this.columns.length);
-        const startIndex = (columnIndex - 1) * itemsPerColumn;
-        const endIndex = Math.min(startIndex + itemsPerColumn, this.items.length);
-        return this.items.slice(startIndex, endIndex);
+    components: {
+        TextInputWithToggle,
+        NoteText
+    },
+    data() {
+        return {
+            columns: [1, 2, 3],
+            items: Array.from({ length: 60 }, (v, k) => ({ id: k + 1 }))
+        };
+    },
+    methods: {
+        itemsInColumn(columnIndex) {
+            const itemsPerColumn = Math.ceil(this.items.length / this.columns.length);
+            const startIndex = (columnIndex - 1) * itemsPerColumn;
+            const endIndex = Math.min(startIndex + itemsPerColumn, this.items.length);
+            return this.items.slice(startIndex, endIndex);
+        }
     }
-}
 };
 </script>
 

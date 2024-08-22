@@ -167,14 +167,16 @@
         </div>
     </div>
 
-    <div class="notes-section">
-        <label for="notes" class="notes-label">Notes:</label>
-        <textarea id="notes" class="notes-input"></textarea>
-    </div>
+    <NotesSection />
 </template>
 
 <script>
+import NotesSection from '../NotesSection.vue';
+
 export default {
+    components: {
+        NotesSection
+    },
     data() {
         return {
             circleTotal: 0,
@@ -296,24 +298,5 @@ export default {
 .totals-list {
     font-size: 16px;
     line-height: 1.5;
-}
-
-.notes-section {
-    padding: 20px;
-}
-
-.notes-label {
-    font-weight: bold;
-    display: block;
-    margin-bottom: 10px;
-}
-
-.notes-input {
-    width: 100%;
-    height: 150px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    resize: vertical;
-    background-color: #f0f0f0;
 }
 </style>
