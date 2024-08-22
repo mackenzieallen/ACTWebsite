@@ -1,19 +1,36 @@
 <template>
     <div class="stepper-container">
         <div class="stepper">
-        <div class="step-line"></div>
-        <div v-for="(step, index) in steps" :key="index" class="step-wrapper">
-            <div class="step-label">{{ step.label }}</div>
-            <router-link :to="step.path" class="step" :class="{ active: isActive(step.path) }">
-                <div class="step-box"></div>
-            </router-link>
-        </div>
+            <div class="step-line"></div>
+            <div v-for="(step, index) in steps" :key="index" class="step-wrapper">
+                <div class="step-label">{{ step.label }}</div>
+                <router-link :to="step.path" class="step" :class="{ active: isActive(step.path) }">
+                    <div class="step-box"></div>
+                </router-link>
+            </div>
         </div>
     </div>
+    <div class="navigation-buttons">
+            <ArrowButton 
+                arrowDirection="left" 
+                @clicked="goToPrevious" 
+                :disabled="currentStepIndex === 0" 
+            />
+            <ArrowButton 
+                arrowDirection="right" 
+                @clicked="goToNext" 
+                :disabled="currentStepIndex === steps.length - 1" 
+            />
+        </div>
 </template>
 
 <script>
+import ArrowButton from './ArrowButton.vue';
+
 export default {
+    components: {
+        ArrowButton
+    },
     data() {
         return {
             steps: [
@@ -43,9 +60,24 @@ export default {
             ]
         };
     },
+    computed: {
+        currentStepIndex() {
+            return this.steps.findIndex(step => step.path === this.$route.path);
+        }
+    },
     methods: {
         isActive(path) {
             return this.$route.path === path;
+        },
+        goToPrevious() {
+            if (this.currentStepIndex > 0) {
+                this.$router.push(this.steps[this.currentStepIndex - 1].path);
+            }
+        },
+        goToNext() {
+            if (this.currentStepIndex < this.steps.length - 1) {
+                this.$router.push(this.steps[this.currentStepIndex + 1].path);
+            }
         }
     }
 };
@@ -130,5 +162,10 @@ export default {
     border-radius: 8px;
 }
 
-
+.navigation-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+    padding-right: 10px;
+}
 </style>
