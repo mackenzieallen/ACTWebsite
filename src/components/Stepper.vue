@@ -166,6 +166,6 @@ export default {
     display: flex;
     justify-content: space-between;
     margin-top: 10px;
-    padding-right: 10px;
+    padding-right: 20px;
 }
 </style>

@@ -4,11 +4,6 @@
             <i class="fas fa-bars fa bars"></i>
         </button>
     </div>
-    
-    <!--     <div class="arrow-buttons-container">
-        <ArrowButton arrowDirection="left" @clicked="handleLeftArrowClick" />
-        <ArrowButton arrowDirection="right" @clicked="handleRightArrowClick" />
-    </div> -->
 
     <div>
         <h1 class="heading">{{ heading }}</h1>
@@ -30,13 +25,11 @@
 </template>
 
 <script>
-// import ArrowButton from '@/components/ArrowButton.vue';
 import ScoringPanel from '../components/ScoringPanel.vue';
 
 
 export default {
     components: {
-        //ArrowButton,
         ScoringPanel
     },
     props: {
@@ -55,12 +48,6 @@ export default {
         };
     },
     methods: {
-        handleLeftArrowClick() {
-            console.log('Left arrow clicked');
-        },
-        handleRightArrowClick() {
-            console.log('Right arrow clicked');
-        },
         openScoringPanel() {
             this.isScoringPanelOpen = true;
         },

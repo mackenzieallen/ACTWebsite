@@ -36,7 +36,7 @@ export default {
 .arrow-button {
   width: 38px;
   height: 38px;
-  background-color: #3986A8;
+  background-color: #237091;
   border: none;
   border-radius: 8px;
   cursor: pointer;
