@@ -1,8 +1,6 @@
 <template>
   <div id="app">
-    <div v-if="currentRouteName !== 'CASI'">
-      <Stepper />
-    </div>
+    <Stepper />
     <router-view></router-view>
   </div>
 </template>
@@ -12,12 +10,7 @@ import Stepper from './components/Stepper.vue';
 
 export default {
   components: {
-        Stepper
-    },
-  computed: {
-    currentRouteName() {
-      return this.$route.name;
-    }
+    Stepper
   }
 };
 </script>
