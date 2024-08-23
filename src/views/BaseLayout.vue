@@ -1,15 +1,14 @@
 <template>
-    <div class="button-container">
-        <button @click="openScoringPanel" class="open-panel">
-            <i class="fas fa-bars fa bars"></i>
-        </button>
-    </div>
+    <TopBar @openScoringPanel="openScoringPanel" />
+
+    <Stepper />
 
     <div>
         <h1 class="heading">{{ heading }}</h1>
     </div>
 
-    <ScoringPanel :isOpen="isScoringPanelOpen" 
+    <ScoringPanel 
+        :isOpen="isScoringPanelOpen" 
         :totalScore="totalScore" 
         :casiATT="casiATT"
         :casiMMC="casiMMC"
@@ -26,11 +25,14 @@
 
 <script>
 import ScoringPanel from '../components/ScoringPanel.vue';
-
+import TopBar from '../components/TopBar.vue';
+import Stepper from '../components/Stepper.vue';
 
 export default {
     components: {
-        ScoringPanel
+        ScoringPanel,
+        TopBar,
+        Stepper
     },
     props: {
         heading: {
@@ -58,7 +60,6 @@ export default {
 }
 </script>
 
-
 <style scoped>
 .heading {
     font-weight: normal;
@@ -75,27 +76,5 @@ export default {
     display: flex;
     justify-content: space-between;
     margin-top: 25px;
-}
-.open-panel {
-    border: none;
-    background: #237091;
-    color: white;
-    border-radius: 5px;
-    width: 38px;
-    height: 38px;
-    cursor: pointer;
-}
-.bars {
-    justify-content: center;
-    display: flex;
-}
-.button-container {
-    display: flex;
-    justify-content: flex-end;
-    position: sticky;
-    top: 0;
-    background-color: white;
-    z-index: 1000;
-    padding: 20px;
 }
 </style>

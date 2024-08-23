@@ -3,25 +3,31 @@
         <div class="stepper">
             <div class="step-line"></div>
             <div v-for="(step, index) in steps" :key="index" class="step-wrapper">
-                <div class="step-label">{{ step.label }}</div>
-                <router-link :to="step.path" class="step" :class="{ active: isActive(step.path) }">
-                    <div class="step-box"></div>
-                </router-link>
+                <div class="step-label" v-html="step.label"></div>
+                <div class="step"
+                    :class="{
+                        'active': isActive(step.path),
+                        'filled-before': isBefore(index),
+                        'filled-after': isAfter(index)
+                    }">
+                    <div class="outer-circle"></div>
+                    <div class="inner-circle"></div>
+                </div>
             </div>
         </div>
     </div>
     <div class="navigation-buttons">
-            <ArrowButton 
-                arrowDirection="left" 
-                @clicked="goToPrevious" 
-                :disabled="currentStepIndex === 0" 
-            />
-            <ArrowButton 
-                arrowDirection="right" 
-                @clicked="goToNext" 
-                :disabled="currentStepIndex === steps.length - 1" 
-            />
-        </div>
+        <ArrowButton 
+            arrowDirection="left" 
+            @clicked="goToPrevious" 
+            :disabled="currentStepIndex === 0" 
+        />
+        <ArrowButton 
+            arrowDirection="right" 
+            @clicked="goToNext" 
+            :disabled="currentStepIndex === steps.length - 1" 
+        />
+    </div>
 </template>
 
 <script>
@@ -34,35 +40,24 @@ export default {
     data() {
         return {
             steps: [
-                { label: 'Home', path: '/' },
-                { label: 'Logical Memory (Anna)', path: '/logical-memory/anna' },
-                { label: 'Logical Memory (Robert)', path: '/logical-memory/robert' },
-                { label: 'Verbal Fluency, Letter F (Interview)', path: '/verbal-fluency/letter-f/interview' },
-                { label: 'Verbal Fluency, Letter F (Transcription)', path: '/verbal-fluency/letter-f/transcription' },
-                { label: 'Verbal Fluency, Supermarket (Interview)', path: '/verbal-fluency/supermarket/interview' },
-                { label: 'Verbal Fluency, Supermarket (Transcription)', path: '/verbal-fluency/supermarket/transcription' },
-                { label: 'Word List (Trial 1)', path: '/word-list/trial1' },
-                { label: 'Word List (Trial 2)', path: '/word-list/trial2' },
-                { label: 'Word List (Trial 3)', path: '/word-list/trial3' },
-                { label: 'Word List (Recall)', path: '/word-list/recall' },
-                { label: 'Word List (Recognition)', path: '/word-list/recognition' },
-                { label: 'Constructional Praxis (Initial)', path: '/constructional-praxis/intitial' },
-                { label: 'Constructional Praxis (Recall)', path: '/constructional-praxis/recall' },
                 { label: 'Clock Drawing', path: '/clock-drawing' },
-                { label: 'WAIS', path: '/WAIS' },
-                { label: 'Trail Making', path: '/trail-making' },
-                { label: 'Boston Naming', path: '/boston-naming' },
                 { label: 'CASI', path: '/CASI' },
-                { label: 'Verbal Paired Associates (Set 1)', path: '/verbal-paired-associates/set1' },
-                { label: 'Verbal Paired Associates (Set 2)', path: '/verbal-paired-associates/set2' },
-                { label: 'Verbal Paired Associates (Set 3)', path: '/verbal-paired-associates/set3' },
-                { label: 'Verbal Paired Associates (Recall)', path: '/verbal-paired-associates/recall' }
+                { label: 'Verbal Fluency<br>Letter F', path: '/verbal-fluency/letter-f/interview' },
+                { label: 'Verbal Fluency<br>Supermarket', path: '/verbal-fluency/supermarket/interview' },
+                { label: 'Trail Making A', path: '/trail-making/a' },
+                { label: 'Trail Making B', path: '/trail-making/b' }
             ]
         };
     },
     computed: {
         currentStepIndex() {
             return this.steps.findIndex(step => step.path === this.$route.path);
+        },
+        isBefore() {
+            return (index) => index < this.currentStepIndex;
+        },
+        isAfter() {
+            return (index) => index > this.currentStepIndex;
         }
     },
     methods: {
@@ -94,11 +89,12 @@ export default {
 
 .stepper {
     display: flex;
-    align-items: flex-end;
+    align-items: center;
     position: relative;
     height: 150px;
     width: 100%;
     min-width: 100%;
+    justify-content: space-between;
 }
 
 .step-line {
@@ -108,50 +104,68 @@ export default {
     height: 2px;
     background-color: #2FB3AA;
     z-index: 1;
-    width: 400%;
+    width: 100%;
 }
 
 .step-wrapper {
     display: flex;
-    flex-direction: column;
+    flex-direction: column-reverse;
     align-items: center;
     position: relative;
-    padding-bottom: 10px;
-    padding-top: 10px;
     flex: 1;
-    margin-right: 50px;
+    height: 88.5px;
+    padding-top: 10px;
 }
 
 .step-label {
     text-align: center;
-    font-size: 12px;
+    font-size: 18px;
     color: black;
-    margin-bottom: 12px;
+    margin-bottom: 40px;
     white-space: normal;
     padding: 0 5px;
     box-sizing: border-box;
-    height: 30px;
-    display: flex;
-    align-items: flex-end;
+    height: auto;
+    line-height: 1.2; /* Adjust line height */
+    position: absolute;
+    bottom: 0; /* Align label bottom with circle top */
 }
 
 .step {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 50px;
-    height: 50px;
-    border: 2px solid #2FB3AA;
-    border-radius: 8px;
-    background-color: white;
-    transition: background-color 0.3s, border-color 0.3s;
-    cursor: pointer;
     position: relative;
-    margin-top: 0;
+    width: 24px;
+    height: 24px;
+}
+
+.step .outer-circle {
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background-color: transparent;
+    border: 2px solid transparent;
+    z-index: 1;
+    transition: border-color 0.3s;
+}
+
+.step .inner-circle {
+    width: 8px;
+    height: 8px;
+    border: 2px solid #2FB3AA;
+    border-radius: 50%;
+    background-color: white;
     z-index: 2;
 }
 
-.step.active {
+.step.active .outer-circle {
+    background-color: white;
+    border-color: #2FB3AA;
+}
+
+.step.active .inner-circle {
     background-color: #2FB3AA;
     border-color: #2FB3AA;
 }
@@ -167,5 +181,10 @@ export default {
     justify-content: space-between;
     margin-top: 10px;
     padding-right: 20px;
+}
+
+.step.filled-before .inner-circle {
+    background-color: #2FB3AA;
+    border-color: #2FB3AA;
 }
 </style>

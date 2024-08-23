@@ -5,6 +5,8 @@
     “Now I am going to show you some pictures and I want you to say the name of each picture.”
     (Record all responses verbatim. Maximum exposure per picture is 10 seconds).
   </div>
+  <p>*ADPR</p>
+  <p>**CERAD</p>
 
   <div class="table-container">
     <table class="styled-table">

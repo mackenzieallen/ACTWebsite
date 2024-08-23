@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router';
 
 import HomePage from '../views/HomePage.vue';
+import PageIndex from '../views/PageIndex.vue';
 import LogicalMemoryAnna from '../views/LogicalMemory/LogicalMemoryAnna.vue';
 import LogicalMemoryRobert from '../views/LogicalMemory/LogicalMemoryRobert.vue';
 import LetterFInterview from '../views/VerbalFluency/LetterFInterview.vue';
@@ -29,6 +30,11 @@ const routes = [
     path: '/',
     name: 'Home',
     component: HomePage
+  },
+  {
+    path: '/page-index',
+    name: 'Page Index',
+    component: PageIndex
   },
   {
     path: '/logical-memory/anna',
@@ -106,8 +112,13 @@ const routes = [
     component: WAIS
   },
   {
-    path: '/trail-making',
-    name: 'Trail Making',
+    path: '/trail-making/a',
+    name: 'Trail Making A',
+    component: TrailMaking
+  },
+  {
+    path: '/trail-making/b',
+    name: 'Trail Making B',
     component: TrailMaking
   },
   {

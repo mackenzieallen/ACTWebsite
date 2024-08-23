@@ -1,7 +1,11 @@
 <template>
-    <button :class="['square-button', { 'dark': dark }]">
-        <span>{{ buttonText }}</span>
-    </button>
+  <component
+    :is="to ? 'router-link' : 'button'"
+    :to="to"
+    :class="['square-button', { 'dark': dark }]"
+  >
+    <span>{{ buttonText }}</span>
+  </component>
 </template>
 
 <script>
@@ -15,6 +19,10 @@ export default {
         dark: {
             type: Boolean,
             default: true
+        },
+        to: {
+            type: String,
+            default: null
         }
     }
 };

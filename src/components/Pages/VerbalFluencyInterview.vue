@@ -1,5 +1,6 @@
 <template>
     <NoteText text="You can make notes on the form below" />
+    <div class="note">C = Correct, I = Incorrect, R = Repeat</div>
 
     <div class="text-input-grid">
         <div v-for="(column, index) in columns" :key="index" class="column">
@@ -62,5 +63,9 @@ export default {
 
 .input-row {
     margin-bottom: 10px;
+}
+
+.note {
+    margin-left: 25px;
 }
 </style>
