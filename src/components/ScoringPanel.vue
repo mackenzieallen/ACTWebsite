@@ -4,6 +4,8 @@
     <div class="content">
       <h1>ACT Scoring Sheet</h1>
 
+      <ScoreSection taskName="Clock Drawing"></ScoreSection>
+
       <ScoreSection taskName="CASI">
         <div>Attention Score: {{ casiATT }}</div>
         <div>Mental Manipulation/Concentration Score: {{ casiMMC }}</div>
@@ -17,6 +19,13 @@
         <div class="total">Total Score: {{ totalScore }}</div>
       </ScoreSection>
 
+      <ScoreSection taskName="Verbal Fluency, Letter F"></ScoreSection>
+
+      <ScoreSection taskName="Verbal Fluency, Supermarket"></ScoreSection>
+
+      <ScoreSection taskName="Trail Making A"></ScoreSection>
+
+      <ScoreSection taskName="Trail Making B"></ScoreSection>
       <slot></slot>
     </div>
   </div>
@@ -59,6 +68,7 @@ export default {
   transform: translateX(100%);
   transition: transform 0.3s ease-in-out;
   z-index: 1000;
+  overflow-y: auto;
 }
 
 .scoring-panel.open {
@@ -77,6 +87,8 @@ export default {
 
 .content {
   padding: 20px;
+  overflow-y: auto; /* Added to make the content scrollable */
+  height: calc(100% - 40px); 
 }
 
 .total {

@@ -1,8 +1,8 @@
 <template>
-    <TopBar @openScoringPanel="openScoringPanel" />
-
-    <Stepper />
-
+    <TopBar v-if="showStepper" @openScoringPanel="openScoringPanel" />
+    
+    <Stepper v-if="showStepper" />
+    
     <div>
         <h1 class="heading">{{ heading }}</h1>
     </div>
@@ -48,6 +48,11 @@ export default {
         return {
             isScoringPanelOpen: false,
         };
+    },
+    computed: {
+        showStepper() {
+            return this.$route.path !== '/';
+        }
     },
     methods: {
         openScoringPanel() {

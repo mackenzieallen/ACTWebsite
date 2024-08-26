@@ -2,13 +2,8 @@
   <div class="top-bar">
     <div class="heading">ACT Interviewer App</div>
     <nav class="nav-links">
-        <TextButton to="/" buttonText="Home" />
-
-        <div class="button-container">
-            <button @click="emitOpenScoringPanel" class="open-panel">
-                Scores
-            </button>
-        </div>
+        <TextButton to="/" buttonText="Home" class="button" />
+        <TextButton buttonText="Scores" @click="emitOpenScoringPanel" />
     </nav>
   </div>
 </template>
@@ -49,7 +44,7 @@ export default {
 
 .nav-links {
   display: flex;
-  flex-wrap: wrap;
+  align-items: center;
 }
 
 .button-container {
@@ -60,12 +55,8 @@ export default {
     z-index: 1000;
     padding: 20px;
 }
-.open-panel {
-    border: none;
-    background: #237091;
-    color: white;
-    border-radius: 5px;
-    cursor: pointer;
-    padding: 10px;
+
+.button {
+    margin-right: 10px;
 }
 </style>

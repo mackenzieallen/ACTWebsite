@@ -17,7 +17,8 @@ import ConstructionalPraxisInitial from '../views/ConstructionalPraxis/Construct
 import ConstructionalPraxisRecall from '../views/ConstructionalPraxis/ConstructionalPraxisRecall.vue';
 import ClockDrawing from '../views/ClockDrawing.vue';
 import WAIS from '../views/WAIS.vue';
-import TrailMaking from '../views/TrailMaking.vue';
+import TrailMakingA from '../views/TrailMaking/TrailMakingA.vue';
+import TrailMakingB from '../views/TrailMaking/TrailMakingB.vue';
 import BostonNaming from '../views/BostonNaming.vue';
 import CASI from '../views/CASI.vue';
 import VPASet1 from '../views/VerbalPairedAssociates/VPASet1';
@@ -114,12 +115,12 @@ const routes = [
   {
     path: '/trail-making/a',
     name: 'Trail Making A',
-    component: TrailMaking
+    component: TrailMakingA
   },
   {
     path: '/trail-making/b',
     name: 'Trail Making B',
-    component: TrailMaking
+    component: TrailMakingB
   },
   {
     path: '/boston-naming',

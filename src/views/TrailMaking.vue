@@ -1,10 +1,5 @@
 <template>
   <BaseLayout :heading="'Trail Making'" />
-
-  <div class="cube-container">
-    <img src="../assets/images/cube.png" alt="Cube" />
-  </div>
-
   <NotesSection />
 </template>
 
@@ -19,10 +14,3 @@ export default {
   }
 }
 </script>
-
-<style scoped>
-.cube-container {
-  display: flex;
-  justify-content: center;
-}
-</style>
